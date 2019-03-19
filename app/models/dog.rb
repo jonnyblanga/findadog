@@ -12,17 +12,12 @@ class Dog < ApplicationRecord
   validates :is_sterilized, inclusion: { in: [true, false] }
 
 
-  validate :colors_match
+  validate :valid_colors
 
-  def colors_match
-    valid_colors = %w(black white gray beige brown orange golden)
-    color.each do |color|
-      valid_colors.include?(color) ? true : errors.add(:color, "#{color} is not in the array of valid colors - check dog.rb for details")
-    end
+
+  def valid_colors
+     valid_colors = %w(black white gray beige brown orange golden)
+     error_message = "color is not in the array of valid colors - check dog.rb for details"
+     (color - valid_colors).each { |color| errors.add(:color, error_message) if color }
   end
 end
-
-
-# validates :color, inclusion: { in: %w(black white gray beige brown orange golden) }
-# validates_associated :dogs
-# validates :is_sterilized, inclusion: { in: [true, false] }
