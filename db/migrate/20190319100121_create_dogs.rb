@@ -7,7 +7,7 @@ class CreateDogs < ActiveRecord::Migration[5.2]
       t.string :size
       t.string :breed
       t.string :color
-      t.boolean :is_hypollergenic
+      t.boolean :is_hypoallergenic
       t.boolean :is_sterilized
       t.string :photo
       t.references :user, foreign_key: true
