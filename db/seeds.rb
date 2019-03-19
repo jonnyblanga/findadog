@@ -4,9 +4,9 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+puts 'Cleaning database...'
 User.destroy_all
 Dog.destroy_all
 Message.destroy_all
@@ -150,4 +150,4 @@ Favorite.create(user_id: 1, dog_id: 22)
 Favorite.create(user_id: 1, dog_id: 25)
 Favorite.create(user_id: 1, dog_id: 30)
 
-puts 'end...'
+puts 'end...for the love of god'
