@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_132803) do
     t.string "size"
     t.string "breed"
     t.string "color"
-    t.boolean "is_hypoallergenic"
-    t.boolean "is_sterilized"
+    t.boolean "is_hypoallergenic", default false
+    t.boolean "is_sterilized", default false
     t.string "photo"
     t.bigint "user_id"
     t.datetime "created_at", null: false
