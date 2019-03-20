@@ -13,7 +13,15 @@ class DogsController < ApplicationController
   end
 
   def create
-    @dog = Dog.new(dog_params)
+    color_string = params[:dog][:color]
+    if color_string.include? " "
+      color = color_string.split(" ")
+    else
+      color = [color_string]
+    end
+    params_update = dog_params
+    params_update[:color] = color
+    @dog = Dog.new(params_update)
     @dog.user = current_user
     if @dog.save!
       redirect_to dog_path(@dog)
@@ -27,7 +35,20 @@ class DogsController < ApplicationController
   end
 
   def update
-    @dog.update(dog_params)
+    color_string = params[:dog][:color]
+    if color_string.include? " "
+      color = color_string.split(" ")
+    else
+      color = [color_string]
+    end
+    params_update = dog_params
+    params_update[:color] = color
+
+    if @dog.update(params_update)
+      redirect_to dog_path(@dog)
+    else
+      render :edit
+    end
   end
 
   def destroy
