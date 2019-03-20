@@ -16,6 +16,7 @@ puts 'Creating fake admin & shelter...'
 
 User.create(
   name: "admin",
+  username: "admin",
   email: "silviasartor@ymail.com",
   password: "123456",
   phone: "0534-32534564",
@@ -24,6 +25,7 @@ User.create(
 
 User.create(
   name: "shelter",
+  username: "shelter",
   email: "jonathanblanga@gmail.com",
   phone: "0534-32534565",
   password: "123456",
@@ -34,7 +36,7 @@ User.create(
 
 10.times do
     user = User.new(
-    name: Faker::Name.unique.name,
+    username: Faker::Name.unique.name,
     email: Faker::Internet.email,
     password: "123456",
     phone: Faker::PhoneNumber.cell_phone_with_country_code,
@@ -45,6 +47,7 @@ end
 
 User.create(
   name: "Homeless Dog",
+  username: "Homeless Dog",
   email: "ivan.radeljevic12345@gmail.com",
   phone: "0534-11111111",
   password: "123456",
@@ -55,6 +58,7 @@ User.create(
 
 User.create(
   name: "Help pets!",
+  username: "Help pets!",
   email: "audrey@gmail.com",
   phone: "0534-55555111",
   password: "123456",
@@ -65,6 +69,7 @@ User.create(
 
 User.create(
   name: "Dogs lover",
+  username: "Dogs lover",
   email: "silvia@silvial.com",
   phone: "0534-77777111",
   password: "123456",
@@ -75,6 +80,7 @@ User.create(
 
 User.create(
   name: "Dog shelter",
+  username: "Dog shelter",
   email: "fra@fra.fra",
   phone: "0534-10101111",
   password: "123456",
