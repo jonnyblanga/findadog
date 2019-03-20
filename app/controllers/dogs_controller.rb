@@ -54,6 +54,10 @@ class DogsController < ApplicationController
     @dog.destroy
   end
 
+  def me
+    @user = User.find(current_user.id)
+  end
+
   private
 
   def dog_params
@@ -63,4 +67,5 @@ class DogsController < ApplicationController
   def find_dog
     @dog = Dog.find(params[:id])
   end
+
 end
