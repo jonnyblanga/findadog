@@ -6,12 +6,12 @@
     <%= f.input :name %>
     <%= f.input :gender, collection: ["male", "female"] %>
     <%= f.input :date_of_birth %> <#% fx date birth form behaviour  %>
-    <%= f.input :size %>
+    <%= f.input :size, collection: ["small", "medium", "large"] %>
     <%= f.input :breed %>
     <%= f.input :color, placeholder: "white, black, beige, gray, borwn, orange, golden" %>
     <#% fix color form behaviour so it tranforms input to array %>
-    <%= f.input :is_hypoallergenic, collection: [true, false]%>
-    <%= f.input :is_sterilized, collection: [true, false] %>
+    <%= f.input :is_hypoallergenic, collection: [["yes", true],["no", false]] %>
+    <%= f.input :is_sterilized, collection: [["yes", true],["no", false]] %>
     <%= f.button :submit %>
   <% end %>
 </div>

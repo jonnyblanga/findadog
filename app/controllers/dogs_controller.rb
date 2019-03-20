@@ -23,7 +23,7 @@ class DogsController < ApplicationController
     params_update[:color] = color
     @dog = Dog.new(params_update)
     @dog.user = current_user
-    if @dog.save!
+    if @dog.save
       redirect_to dog_path(@dog)
     else
       render :new

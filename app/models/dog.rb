@@ -11,13 +11,13 @@ class Dog < ApplicationRecord
   validates :is_hypoallergenic, inclusion: { in: [true, false] }
   validates :is_sterilized, inclusion: { in: [true, false] }
 
+  # we will do color validation later inside the css
+  # validate :valid_colors
 
-  validate :valid_colors
 
-
-  def valid_colors
-     valid_colors = %w(black white gray beige brown orange golden)
-     error_message = "color is not in the array of valid colors - check dog.rb for details"
-     (color - valid_colors).each { |color| errors.add(:color, error_message) if color }
-  end
+  # def valid_colors
+  #    valid_colors = %w(black white gray beige brown orange golden)
+  #    error_message = "color is not in the array of valid colors - check dog.rb for details"
+  #    (color - valid_colors).each { |color| errors.add(error_message) if color }
+  # end
 end
