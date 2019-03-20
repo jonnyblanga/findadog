@@ -1,8 +1,2 @@
 
-
-  <%= @user.name %>
-  <%= @user.username %>
-  <%= @user.email %>
-  <%= @user.password %>
-  <%= @user.phone %>
-  <%= @user.role %>
+  <%= render partial: "dogs/partials/#{@user.role}_profile", locals: {user: @user} %>
