@@ -1,0 +1,15 @@
+
+<div class="profile-center">
+  <div class="profile-info">
+    <div class="profile-info-header">
+      <p>INFORMATION ABOUT YOU</p><%= link_to "Edit",  edit_user_registration_path,  class: "btn btn-ghost", method: :GET %>
+    </div>
+    <div class="profile-info-body">
+      <h2><%= @user.name %></h2>
+      <h3><%= @user.username %></h3>
+      <h3><%= @user.email %></h3>
+      <h3> password </h3>
+      <h3><%= @user.role %></h3>
+    </div>
+  </div>
+</div>
