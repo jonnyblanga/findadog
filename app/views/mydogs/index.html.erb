@@ -1,3 +1,4 @@
+
 <% if @user.role == "user" %>
   <%= render partial: "mydogs/partials/favorites", locals: {favorites: @favorites} %>
 <% else %>
