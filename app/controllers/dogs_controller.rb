@@ -15,7 +15,11 @@ class DogsController < ApplicationController
   def create
     @dog = Dog.new(dog_params)
     @dog.user = current_user
-    @dog.save
+    if @dog.save!
+      redirect_to dog_path(@dog)
+    else
+      render :new
+    end
   end
 
   def edit
