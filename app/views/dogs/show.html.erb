@@ -1,2 +1,10 @@
 <h1>hello show</h1>
 <%= @dog.name %>
+
+<h3>delete this dog :(</h3>
+<%= link_to edit_dog_path(@dog) do %>
+  <button type="button" class="btn btn-outline-secondary"><i class="fas fa-pencil-alt"></i>Edit this dog</button>
+<% end %>
+
+<button id="btn-gradient"><%= link_to "Delete", dog_path(@dog), method: :delete %></button>
+

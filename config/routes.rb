@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy]
   end
 
+
   resources :favorites, only: [:index]
 
   resources :messages, only: [:new, :create, :destroy]
