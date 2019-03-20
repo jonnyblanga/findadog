@@ -11,7 +11,9 @@
           <% now = Date.today %>
           <% age = now.year - dog.date_of_birth.year %>
           <% age = "Few months old" if age == 0 %>
+
           <h3><%= age > 1 ? "#{age} years old" : "#{age} year old" %></h3>
+
         </div>
       </div>
       <%# end %>

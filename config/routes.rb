@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'dogs/me', to: 'dogs#me', as: :me
 
   resources :dogs do
-    resources :favorites, only: [:create, :destroy]
+    resources :mydogs, only: [:create, :destroy]
   end
 
   resources :mydogs, only: [:index]
