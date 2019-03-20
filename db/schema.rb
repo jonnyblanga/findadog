@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_132803) do
     t.datetime "updated_at", null: false
     t.string "phone"
     t.string "name"
+    t.string "username"
     t.string "password"
     t.string "role"
     t.string "hours_of_operation"
