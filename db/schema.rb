@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_132803) do
     t.string "size"
     t.string "breed"
     t.string "color"
-    t.boolean "is_hypollergenic"
-    t.boolean "is_sterilized"
+    t.boolean "is_hypoallergenic", default: false
+    t.boolean "is_sterilized", default: false
     t.string "photo"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -59,8 +59,9 @@ ActiveRecord::Schema.define(version: 2019_03_19_132803) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "username"
     t.string "phone"
+    t.string "name"
+    t.string "password"
     t.string "role"
     t.string "hours_of_operation"
     t.string "address"
