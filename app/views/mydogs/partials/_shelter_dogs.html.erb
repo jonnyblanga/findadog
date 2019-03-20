@@ -1,1 +1,23 @@
-_shelter_dogs.html.erb
+<div class="card-container">
+  <div class="card-row">
+    <% @dogs.each do |dog| %>
+    <div class="card-trip col-xs-3">
+      <% if dog.photo.present? %>
+      <%= cl_image_tag(dog.photo, class: "image") %>
+      <%#= link_to favorite_path(favorite) do %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= dog.name %>, <%= dog.gender %> </h2>
+          <% now = Date.today %>
+          <% age = now.year - dog.date_of_birth.year %>
+          <% age = "Few months old" if age == 0 %>
+          <h3><%= age if (age > 1) %> years old</h3>
+          <h3><%= age if (age = 1) %> year old</h3>
+        </div>
+      </div>
+      <%# end %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

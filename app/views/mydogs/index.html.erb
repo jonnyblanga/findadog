@@ -1,23 +1,5 @@
-
-<div class="card-container">
-  <div class="card-row">
-    <% @favorites.each do |favorite| %>
-    <div class="card-trip col-xs-3">
-      <% if favorite.dog.photo.present? %>
-      <%= cl_image_tag(favorite.dog.photo, class: "image") %>
-      <%#= link_to favorite_path(favorite) do %>
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= favorite.dog.name %>, <%= favorite.dog.gender %> </h2>
-          <% now = Date.today %>
-          <% age = now.year - favorite.dog.date_of_birth.year %>
-          <% age = "few months" if age == 0 %>
-          <h3><%= age %> </h3>
-        </div>
-      </div>
-      <%# end %>
-      <% end %>
-    </div>
-    <% end %>
-  </div>
-</div>
+<% if @user.role == "user" %>
+  <%= render partial: "mydogs/partials/favorites", locals: {favorites: @favorites} %>
+<% else %>
+  <%= render partial: "mydogs/partials/shelter_dogs", locals: {dogs: @dogs} %>
+<% end %>

@@ -1,6 +1,7 @@
-.card-row{
+.card-row {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  align-content: flex-start;
 }
 
