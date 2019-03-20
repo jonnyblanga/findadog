@@ -1,1 +1,16 @@
 <h1>hello new</h1>
+<div class="form-page">
+  <h1>New dog</h1>
+
+  <%= simple_form_for @dog do |f| %>
+    <%= f.input :name %>
+    <%= f.input :gender, collection: ["male", "female"] %>
+    <%= f.input :date_of_birth %> <#% fx date birth form behaviour  %>
+    <%= f.input :size, collection: ["small", "medium", "large"] %>
+    <%= f.input :breed %>
+    <%= f.input :color, placeholder: "white, black, beige, gray, borwn, orange, golden" %>
+    <%= f.input :is_hypoallergenic, collection: [["yes", true],["no", false]] %>
+    <%= f.input :is_sterilized, collection: ["yes", true],["no", false]] %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
