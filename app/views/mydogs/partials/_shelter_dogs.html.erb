@@ -1,4 +1,5 @@
 <div class="card-container">
+  <%= link_to "Add a Dog", new_dog_path, class: "btn-ghost" %>
   <div class="card-row">
     <% @dogs.each do |dog| %>
     <div class="card-trip col-xs-3">
@@ -13,7 +14,10 @@
           <% age = "Few months old" if age == 0 %>
 
           <h3><%= age > 1 ? "#{age} years old" : "#{age} year old" %></h3>
-
+        </div>
+        <div>
+          <%= link_to "Edit", edit_dog_path(dog.id), class: "btn-ghost" %>
+          <%= link_to "Delete", dog_path(dog), class: "btn-ghost", method: :delete %>
         </div>
       </div>
       <%# end %>
