@@ -15,7 +15,7 @@ class MydogsController < ApplicationController
 
   def destroy
     @favorite.destroy
-    redirect_to dogs_path
+    redirect_back(fallback_location: root_path)
   end
 
   private
