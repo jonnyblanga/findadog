@@ -33,18 +33,11 @@ class DogsController < ApplicationController
   end
 
   def create
-    color_string = params[:dog][:color]
-    if color_string.include? " "
-      color = color_string.split(" ")
-    else
-      color = [color_string]
-    end
-    params_update = dog_params
-    params_update[:color] = color
-    @dog = Dog.new(params_update)
+    params[:dog][:color].delete_at(0)
+    @dog = Dog.new(dog_params)
     @dog.user = current_user
     if @dog.save
-      redirect_to dog_path(@dog)
+      redirect_to mydogs_path
     else
       render :new
     end
