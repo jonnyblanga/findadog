@@ -65,7 +65,7 @@ class DogsController < ApplicationController
     params_update[:color] = color
 
     if @dog.update(params_update)
-      redirect_to dog_path(@dog)
+      redirect_to mydogs_path
     else
       render :edit
     end
