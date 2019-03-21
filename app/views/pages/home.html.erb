@@ -1,29 +1,24 @@
-    <div class="landing-banner">
+  <div class="home-navbar">
+    <%= render 'shared/navbar-transparent' %>
+  </div>
 
+
+  <div class="landing-banner">
+    
       <div class="images-slider">
         <div class="image-slide1">
-          <div class="home-navbar">
-          <%= render 'shared/navbar' %>
-        </div>
-        </div>
-        <div class="image-slide2">
-          <div class="home-navbar">
-          <%= render 'shared/navbar' %>
-        </div>
-        </div>
-        <div class="image-slide3">
-          <div class="home-navbar">
-          <%= render 'shared/navbar' %>
-        </div>
-        </div>
       </div>
+      <div class="image-slide2">
 
-      <div class="wrapping-banner-content">
-        <div class="landing-text">
-          <h1>FINDADOG</h1>
-          <p>THIS IS A HEADER</p>
-        </div>
+      </div>
+      <div class="image-slide3">
+      </div>
+    </div>
 
+    <div class="wrapping-banner-content">
+      <div class="landing-text">
+        <h1>FINDADOG</h1>
+        <p>THIS IS A HEADER</p>
         <div class="search-input">
 
           <div>
@@ -54,5 +49,19 @@
             <button type="submit" class="btn-warning btn-search"><i class="fa fa-search"></i></button>
           </div>
         </div>
+
       </div>
+
+      <form action="/dogs" method="get">
+        <div class="search-input">
+          <div>
+            <input type="search" id="address" class="enter-city" placeholder="Enter a city or an adress..." name="query" />
+          </div>
+          <div>
+            <button type="submit" class="btn-warning btn-search"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </form>
+
     </div>
+  </div>
