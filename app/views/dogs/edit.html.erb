@@ -4,13 +4,13 @@
 
   <%= simple_form_for @dog do |f| %>
     <%= f.input :name %>
-    <%= f.input :gender, collection: ["male", "female"] %>
+    <%= f.input :gender, collection: Dog::GENDERS %>
     <label>Birthday</label>
     <%= date_select :user, :birthday, :start_year => (Date.current.year - 90), :end_year => (Date.current.year)%>
-    <%= f.input :size, collection: ["small", "medium", "large"] %>
+    <%= f.input :size, collection: Dog::SIZES %>
     <%= f.input :breed, collection: @breed %>
     <%#= f.input :color, placeholder: "white, black, beige, gray, borwn, orange, golden" %>
-    <%= f.input :color, :label => "Color", :collection => ["white", "black", "beige", "gray", "borwn", "orange", "golden"], :as => :check_boxes %>
+    <%= f.input :color, :label => "Color", :collection => Dog::COLORS, :as => :check_boxes %>
 
     <%= f.input :is_hypoallergenic, as: :boolean, checked_value: true, unchecked_value: false %>
     <%= f.input :is_sterilized, as: :boolean, checked_value: true, unchecked_value: false %>
