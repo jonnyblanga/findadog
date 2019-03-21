@@ -10,7 +10,7 @@
       <%#= link_to dog_path(dog) do %>
       <div class="card-trip-infos">
         <div>
-          <h2><%= dog.name %>, <%= dog.gender %> </h2>
+          <h2><%= link_to dog.name, dog_path(dog) %>, <%= dog.gender %> </h2>
           <% now = Date.today %>
           <% age = now.year - dog.date_of_birth.year %>
           <% age = "few months" if age == 0 %>
