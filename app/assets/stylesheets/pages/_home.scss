@@ -1,6 +1,96 @@
 // Specific CSS for your home-page
-body {
- background-image: asset-url('doglanding1.jpg');
-  background-size: cover;
+
+// .images-slider{
+//   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('doglanding1.jpg');
+//   background-size: cover;
+//   width: 100%;
+//   height: 700px;
+//   display: flex;
+//   justify-content: center;
+
+// }
+
+// .images-slider{
+//   display: flex;
+//   justify-content: center;
+//   position: absolute;
+// }
+
+.landing-banner {
+
+
+}
+.wrapping-banner-content {
+  padding-top: 20%;
+  position: absolute;
+  left: 0;
+right: 0;
+margin-left: auto;
+margin-right: auto;
+width:280px;
+
 }
 
+.search-input {
+  display: flex;
+  justify-content: center;
+}
+
+.enter-city {
+  width: 320px;
+}
+
+
+
+.image-slide1,.image-slide2,.image-slide3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  background:rgba(0, 0, 0, 4);
+}
+
+.image-slide1 {
+  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('doglanding1.jpg')no-repeat center;
+  background-size: cover;
+  animation:fade infinite;
+  animation-duration: 30s;
+}
+
+
+
+.image-slide2 {
+  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('doglanding4.jpg')no-repeat center;
+  background-size: cover;
+  animation:fade2 infinite;
+  animation-duration: 30s;
+
+}
+.image-slide3 {
+    background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('doglanding5.jpg')no-repeat center;
+  background-size: cover;
+    background-size: cover;
+    animation:fade3 infinite;
+    animation-duration: 30s;
+
+}
+@keyframes fade {
+  0%   {opacity:1}
+  33.333% { opacity: 0}
+  66.666% { opacity: 0}
+  100% { opacity: 1}
+}
+
+@keyframes fade2 {
+  0%   {opacity:0}
+  33.333% { opacity: 1}
+  66.666% { opacity: 0 }
+  100% { opacity: 0}
+}
+
+@keyframes fade3 {
+  0%   {opacity:0}
+  33.333% { opacity: 0}
+  66.666% { opacity: 1}
+  100% { opacity: 0}
+}

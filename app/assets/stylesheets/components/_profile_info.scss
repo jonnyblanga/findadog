@@ -1,0 +1,19 @@
+.profile-info {
+  display: flex;
+  // justify-content: space-betwee;
+  margin-top: 50px;
+  padding: 10px 25px;
+  .profile-info-header {
+    text-align: right;
+    color: lightgray;
+  }
+  .profile-info-body {
+    text-align: left;
+    margin-left: 50px;
+  }
+}
+
+.profile-center {
+  display: flex;
+  flex-direction: column;
+}

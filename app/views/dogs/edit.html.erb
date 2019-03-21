@@ -1,17 +1,20 @@
-<h1>hello edit</h1>
+
 <div class="form-page">
   <h1>Edit your dog</h1>
 
   <%= simple_form_for @dog do |f| %>
     <%= f.input :name %>
     <%= f.input :gender, collection: ["male", "female"] %>
-    <%= f.input :date_of_birth %> <#% fx date birth form behaviour  %>
+    <label>Birthday</label>
+    <%= date_select :user, :birthday, :start_year => (Date.current.year - 90), :end_year => (Date.current.year)%>
     <%= f.input :size, collection: ["small", "medium", "large"] %>
-    <%= f.input :breed %>
-    <%= f.input :color, placeholder: "white, black, beige, gray, borwn, orange, golden" %>
-    <#% fix color form behaviour so it tranforms input to array %>
-    <%= f.input :is_hypoallergenic, collection: [["yes", true],["no", false]] %>
-    <%= f.input :is_sterilized, collection: [["yes", true],["no", false]] %>
+    <%= f.input :breed, collection: @breed %>
+    <%#= f.input :color, placeholder: "white, black, beige, gray, borwn, orange, golden" %>
+    <%= f.input :color, :label => "Color", :collection => ["white", "black", "beige", "gray", "borwn", "orange", "golden"], :as => :check_boxes %>
+
+    <%= f.input :is_hypoallergenic, as: :boolean, checked_value: true, unchecked_value: false %>
+    <%= f.input :is_sterilized, as: :boolean, checked_value: true, unchecked_value: false %>
+
     <%= f.button :submit %>
   <% end %>
 </div>

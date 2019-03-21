@@ -1,0 +1,27 @@
+
+<div class="profile-center">
+  <div class="profile-info">
+    <div class="profile-info-header">
+      <p>INFORMATION ABOUT YOU</p>
+    </div>
+    <div class="profile-info-body">
+      <h2><%= @user.username %></h2>
+      <h3> password </h3>
+      <h3><%= @user.role %></h3>
+    </div>
+  </div>
+  <div class="profile-info">
+    <div class="profile-info-header">
+      <p>INFORMATION ABOUT YOUR SHELTER </p>
+      <button class="btn"><%= link_to "Edit",  edit_user_registration_path,  class: "btn btn-ghost", method: :GET %>
+    </div>
+    <div class="profile-info-body">
+      <h2><%= @user.name %></h2>
+      <p><%= @user.email %></p>
+      <p><%= @user.phone %></p>
+      <p><%= @user.address %></p>
+      <p><%= @user.hours_of_operation %></p>
+    </div>
+  </div>
+</div>
+
