@@ -2,7 +2,40 @@ class DogsController < ApplicationController
   before_action :find_dog, only: [:show, :edit, :update, :destroy]
 
   def index
+    @size = params[:size_query]
+    @gender = params[:gender_query]
+    colors = params[:colors] || Dog::COLORS
+    if params[:hypoallergenic_query] == "yes"
+      @hypoallergenic = true
+    else
+      @hypoallergenic = false
+    end
+
+    if params[:sterilized_query] == "yes"
+      @sterilized = true
+    else
+      @sterilized = false
+    end
+
+
     @dogs = Dog.all
+
+    @dogs = @dogs.where(size: @size) if @size.present?
+    @dogs = @dogs.where(gender: @gender) if @gender.present?
+    @dogs = @dogs.where(is_hypoallergenic: @hypoallergenic) if @hypoallergenic.present?
+    @dogs = @dogs.where(is_sterilized: @sterilized) if @sterilized.present?
+
+    query = colors.map { |color| "color ILIKE '%#{color}%'"  }.join(" OR ")
+
+    @dogs = @dogs.where(query)
+    # Siliva if you are going to change this code then tell me first so I can copy it becuase I like this code
+
+
+  #   if params[:query].empty? &&
+  #   @dogs = Dog.all
+  # else
+    # if i have parameters im gonna dog
+    #   @dogs = Dog.where(breed: @query_breed, gender: @query_gender etc.)
   end
 
   def show

@@ -1,3 +1,59 @@
+<%= form_tag dogs_path, method: :get do %>
+  <div class="form-group select optional dog_gender">
+    <label class="form-control-label select optional" for="dog_gender">
+      Gender
+    </label>
+    <select class="form-control select optional" name="gender_query" id="dog_gender">
+      <option value=""></option>
+      <% Dog::GENDERS.each do |gender| %>
+        <option value="<%= gender %>" <%= params[:gender_query] == gender ? "selected" : nil%>><%= gender %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="form-group select optional dog_gender">
+    <label class="form-control-label select optional" for="dog_size">
+      Size
+    </label>
+    <select class="form-control select optional" name="size_query" id="dog_size">
+      <option value=""></option>
+      <% Dog::SIZES.each do |size| %>
+        <option value="<%= size %>" <%= params[:size_query] == size ? "selected" : nil%>><%= size %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <% Dog::COLORS.each do |color| %>
+    <input type="checkbox" name="colors[]" id="<%= color %>" <%= (params[:colors] || []).include?(color) ? 'checked' : nil %> value="<%= color %>">
+    <label for="<%= color %>"><%= color %></label>
+  <% end %>
+
+  <div class="form-group select optional dog_gender">
+    <label class="form-control-label select optional" for="dog_hypoallergenic">
+      Is hypoallergenic?
+    </label>
+    <select class="form-control select optional" name="hypoallergenic_query" id="dog_hypoallergenic">
+      <option value=""></option>
+      <% Dog::YES_AND_NO.each do |answer| %>
+        <option value="<%= answer %>" <%= params[:hypoallergenic_query] == answer ? "selected" : nil%>><%= answer %></option>
+      <% end %>
+    </select>
+  </div>
+
+   <div class="form-group select optional dog_gender">
+    <label class="form-control-label select optional" for="dog_sterilized">
+      Is sterilized?
+    </label>
+    <select class="form-control select optional" name="sterilized_query" id="dog_sterilized">
+      <option value=""></option>
+      <% Dog::YES_AND_NO.each do |hey| %>
+        <option value="<%= hey %>" <%= params[:sterilized_query] == hey ? "selected" : nil%>><%= hey %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <%= submit_tag("Filter") %>
+<% end %>
 
 
 <div class="card-container">

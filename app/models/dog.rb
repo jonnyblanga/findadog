@@ -11,6 +11,12 @@ class Dog < ApplicationRecord
   validates :is_hypoallergenic, inclusion: { in: [true, false] }
   validates :is_sterilized, inclusion: { in: [true, false] }
 
+
+
+  COLORS = ["white", "black", "beige", "gray", "brown", "orange", "golden"]
+  GENDERS = ["male", "female"]
+  SIZES = ["small", "medium", "large"]
+  YES_AND_NO = ["yes", "no"]
   # we will do color validation later inside the css
   # validate :valid_colors
 
