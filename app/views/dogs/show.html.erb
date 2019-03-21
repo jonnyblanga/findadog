@@ -1,10 +1,24 @@
 <h1><%= @dog.name %></h1>
-<% @dog.color[0].each do |color|%>
+<% @dog.color.each do |color|%>
 <p><%= color %></p>
 <% end %>
 
-<%= link_to "Edit", edit_dog_path, class: "btn-ghost" %>
 
+<% if current_user.role == "user" %>
+  <%= link_to "Message the shelter", new_message_path(dog_id: @dog.id), class: "btn-ghost" %>
 
-<%= link_to "Delete", dog_path(@dog), class: "btn-ghost", method: :delete %>
+<% else %>
 
+  <%= link_to "Edit", edit_dog_path, class: "btn-ghost" %>
+
+  <%= link_to "Delete", dog_path(@dog), class: "btn-ghost", method: :delete %>
+
+<% end %>
+
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @marker.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>

@@ -26,4 +26,5 @@ class Dog < ApplicationRecord
   #    error_message = "color is not in the array of valid colors - check dog.rb for details"
   #    (color - valid_colors).each { |color| errors.add(error_message) if color }
   # end
+
 end

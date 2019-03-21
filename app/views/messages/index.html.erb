@@ -1,0 +1,22 @@
+<!-- 5) list all messages I sent -->
+
+<div class="container">
+  <h1>Here are all your messages:</h1>
+
+  <div class="row">
+    <% @messages.each do |message| %>
+    <div class="message">
+      <div class="message-info">
+        <p>From: <%= message.sender.email %></p>
+        <p>To: <%= message.receiver.email %></p>
+      </div>
+      <div class="message-context">
+        <p><%= message.context %></p>
+      </div>
+     </div>
+ </div>
+ <% end %>
+</div>
+
+
+

@@ -31,14 +31,23 @@ class DogsController < ApplicationController
     # Siliva if you are going to change this code then tell me first so I can copy it becuase I like this code
 
 
-  #   if params[:query].empty? &&
-  #   @dogs = Dog.all
-  # else
-    # if i have parameters im gonna dog
-    #   @dogs = Dog.where(breed: @query_breed, gender: @query_gender etc.)
+    @query = params[:query]
+    if @query.empty?
+      @users = User.where.not(longitude:nil, latitude:nil)
+    else
+      @users = User.near(@query, 500)
+    end
+    
+    @dogs = @dogs.where(user_id: @users.pluck(:id))
   end
 
   def show
+    @shelter = @dog.user
+
+    @marker = {
+        latitude: @shelter.latitude,
+        longitude: @shelter.longitude
+      }
   end
 
   def new
@@ -47,18 +56,11 @@ class DogsController < ApplicationController
   end
 
   def create
-    color_string = params[:dog][:color]
-    if color_string.include? " "
-      color = color_string.split(" ")
-    else
-      color = [color_string]
-    end
-    params_update = dog_params
-    params_update[:color] = color
-    @dog = Dog.new(params_update)
+    params[:dog][:color].delete_at(0)
+    @dog = Dog.new(dog_params)
     @dog.user = current_user
     if @dog.save
-      redirect_to dog_path(@dog)
+      redirect_to mydogs_path
     else
       render :new
     end
@@ -79,7 +81,7 @@ class DogsController < ApplicationController
     params_update[:color] = color
 
     if @dog.update(params_update)
-      redirect_to dog_path(@dog)
+      redirect_to mydogs_path
     else
       render :edit
     end
@@ -87,6 +89,7 @@ class DogsController < ApplicationController
 
   def destroy
     @dog.destroy
+    redirect_to mydogs_path
   end
 
   def me
