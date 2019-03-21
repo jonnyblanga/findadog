@@ -73,6 +73,7 @@ class DogsController < ApplicationController
 
   def destroy
     @dog.destroy
+    redirect_to mydogs_path
   end
 
   def me
