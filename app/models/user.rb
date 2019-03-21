@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :name, presence: true, if: :verify_shelter
   validates :phone, presence: true, format: { with: /\S+/}, if: :verify_shelter
-  # validates :address, presence: true, if: :verify_shelter
+  validates :address, presence: true, if: :verify_shelter
   validates :name, presence: true, if: :verify_user
   validates :role, inclusion: { in: %w(shelter user) }
   validates :username, presence: true, uniqueness: true
