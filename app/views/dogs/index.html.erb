@@ -1,12 +1,13 @@
 
-
+<h1>
+  <%= "FindADog in #{@query}:" %>
+</h1>
 <div class="card-container">
   <div class="card-row">
     <% @dogs.each do |dog| %>
     <div class="card-trip col-xs-3">
       <% if dog.photo.present? %>
       <%= cl_image_tag(dog.photo, class: "image") %>
-      <%#= link_to dog_path(dog) do %>
       <div class="card-trip-infos">
         <div>
           <h2><%= link_to dog.name, dog_path(dog) %>, <%= dog.gender %> </h2>
@@ -15,11 +16,21 @@
           <% age = "few months" if age == 0 %>
           <h3><%= age %> </h3>
         </div>
+
+        <div>
+          <% if (user_signed_in?) && (Favorite.where(dog: dog, user: current_user).present?) %>
+            <%= link_to dog_mydog_path(dog.id, Favorite.where(dog: dog, user: current_user).first.id), method: :delete do %>
+            <i class="fas fa-heart" id="active"></i>
+            <% end %>
+          <% else %>
+            <%= link_to dog_mydogs_path(dog.id), method: :post do %>
+            <i class="fas fa-heart"></i>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-      <%# end %>
       <% end %>
     </div>
     <% end %>
   </div>
 </div>
-

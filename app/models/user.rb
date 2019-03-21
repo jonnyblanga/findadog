@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validates :name, presence: true, if: :verify_user
   validates :role, inclusion: { in: %w(shelter user) }
   validates :username, presence: true, uniqueness: true
+  geocoded_by :address
+  after_validation :geocode
 
   def verify_shelter
     self.role == 'shelter'
@@ -17,4 +19,5 @@ class User < ApplicationRecord
   def verify_user
     self.role == 'user'
   end
+
 end
