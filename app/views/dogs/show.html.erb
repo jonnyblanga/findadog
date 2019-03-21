@@ -7,4 +7,5 @@
 
 
 <%= link_to "Delete", dog_path(@dog), class: "btn-ghost", method: :delete %>
+<%= link_to "Message the shelter", new_message_path(dog_id: @dog.id), class: "btn-ghost" %>
 
