@@ -90,6 +90,28 @@ User.create(
   address: " Via Nirone, 5, 20123 Milano MI"
 )
 
+User.create(
+  name: "Dog shelter",
+  username: "Dog shelter",
+  email: "aud@aud.aud",
+  phone: "0534-10101111",
+  password: "123456",
+  role: "shelter",
+  hours_of_operation: "24h a day, mon through sunday",
+  address: "400 Armada Rd, Arcadia, CA 91007"
+)
+
+User.create(
+  name: "Dog shelter",
+  username: "Dog shelter",
+  email: "auds@auds.auds",
+  phone: "0534-10101111",
+  password: "123456",
+  role: "shelter",
+  hours_of_operation: "24h a day, mon through sunday",
+  address: " 361 S Raymond Ave, Pasadena, CA 91105, USA"
+)
+
 puts 'Creating fake dogs...'
 
 dog = Dog.new(name: "Joey", gender: "male", date_of_birth: "2017-01-02", size: "small", breed: "Norrbottenspets", color: ["white", "beige"], is_hypoallergenic: "false", is_sterilized: "true", user_id: User.all.second.id)
@@ -167,7 +189,7 @@ dog.remote_photo_url = "https://www.barinedita.it/public/foto_galleria/dalmata_7
 dog.save
 
 dog = Dog.new(name: "Bear", gender: "male", date_of_birth: "2011-12-19", size: "large", breed: "German Sheperd", color: ["black", "brown"], is_hypoallergenic: "false", is_sterilized: "false", user_id: User.all.last.id-2)
-dog.remote_photo_url = "https://www.cesarsway.com/sites/newcesarsway/files/styles/large_article_preview/public/Ten-things-you-didn%27t-know-about-German-shepherds-.jpg?itok=1A6QPRjw"
+dog.remote_photo_url = "https://usercontent1.hubstatic.com/378546_f520.jpg"
 dog.save
 
 dog = Dog.new(name: "Jack", gender: "male", date_of_birth: "2014-09-11", size: "large", breed: "German Sheperd", color: ["black", "brown"], is_hypoallergenic: "false", is_sterilized: "true", user_id: User.all.last.id-2)

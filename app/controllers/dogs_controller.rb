@@ -2,10 +2,29 @@ class DogsController < ApplicationController
   before_action :find_dog, only: [:show, :edit, :update, :destroy]
 
   def index
-    @dogs = Dog.all
+    @query = params[:query]
+    @dogs = []
+    if @query.empty?
+      @users = User.where.not(longitude:nil, latitude:nil)
+    else
+      @users = User.near(@query, 500)
+    end
+    @users.each do |user|
+      Dog.where(user: user).each do |dog|
+        @dogs << dog
+      end
+    end
   end
 
   def show
+    @shelter = @dog.user
+
+    @marker = @shelter.map do |shelter|
+      {
+        lat: shelter.latitude,
+        lng: shelter.longitude
+      }
+    end
   end
 
   def new
