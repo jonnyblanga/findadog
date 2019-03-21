@@ -1,0 +1,47 @@
+<%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "doglogo.png" %>
+    <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "About", about_path, class: "nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Contact", contact_path, class: "nav-link" %>
+      </li>
+
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <div class="avatar dropdown-toggle avatar-circle" data-toggle="dropdown" id="navbarDropdown">
+            <div class='initials'>
+              <%= current_user.name[0..1].upcase %>
+            </div>
+          </div>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "My Profile", me_path, class: "dropdown-item" %>
+            <% if current_user.role == "user" %>
+              <%= link_to "My Favorite Dogs", mydogs_path, class: "dropdown-item" %>
+              <%= link_to "My Messages", messages_path, class: "dropdown-item" %>
+            <% else %>
+              <%= link_to "My Dogs", mydogs_path, class: "dropdown-item" %>
+            <% end %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Register as shelter", new_user_registration_path , class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>

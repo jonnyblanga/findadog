@@ -4,7 +4,7 @@
     <div class="card-trip col-xs-3">
       <% if favorite.dog.photo.present? %>
       <%= cl_image_tag(favorite.dog.photo, class: "image") %>
-      <%#= link_to favorite_path(favorite) do %>
+
       <div class="card-trip-infos">
         <div>
           <h2><%= favorite.dog.name %>, <%= favorite.dog.gender %> </h2>
@@ -13,10 +13,16 @@
           <% age = "few months" if age == 0 %>
           <h3><%= age %> </h3>
         </div>
+        <div>
+          <%= link_to dog_mydog_path(favorite.dog.id, favorite.id), method: :delete do %>
+          <i class="fas fa-heart" id="active"></i>
+          <% end %>
+        </div>
       </div>
-      <%# end %>
       <% end %>
     </div>
     <% end %>
   </div>
 </div>
+
+

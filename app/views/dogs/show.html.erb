@@ -3,11 +3,17 @@
 <p><%= color %></p>
 <% end %>
 
-<%= link_to "Edit", edit_dog_path, class: "btn-ghost" %>
 
+<% if current_user.role == "user" %>
+  <%= link_to "Message the shelter", new_message_path(dog_id: @dog.id), class: "btn-ghost" %>
 
-<%= link_to "Delete", dog_path(@dog), class: "btn-ghost", method: :delete %>
-<%= link_to "Message the shelter", new_message_path(dog_id: @dog.id), class: "btn-ghost" %>
+<% else %>
+
+  <%= link_to "Edit", edit_dog_path, class: "btn-ghost" %>
+
+  <%= link_to "Delete", dog_path(@dog), class: "btn-ghost", method: :delete %>
+
+<% end %>
 
 <div
   id="map"
@@ -16,4 +22,3 @@
   data-markers="<%= @marker.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
-
