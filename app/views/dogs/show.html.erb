@@ -9,3 +9,11 @@
 <%= link_to "Delete", dog_path(@dog), class: "btn-ghost", method: :delete %>
 <%= link_to "Message the shelter", new_message_path(dog_id: @dog.id), class: "btn-ghost" %>
 
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @marker.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
+
