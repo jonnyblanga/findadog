@@ -19,12 +19,10 @@ class DogsController < ApplicationController
   def show
     @shelter = @dog.user
 
-    @marker = @shelter.map do |shelter|
-      {
-        lat: shelter.latitude,
-        lng: shelter.longitude
+    @marker = {
+        latitude: @shelter.latitude,
+        longitude: @shelter.longitude
       }
-    end
   end
 
   def new
