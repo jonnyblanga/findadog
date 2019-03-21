@@ -36,6 +36,7 @@ User.create(
 
 10.times do
     user = User.new(
+    name: Faker::Name.name,
     username: Faker::Name.unique.name,
     email: Faker::Internet.email,
     password: "123456",
