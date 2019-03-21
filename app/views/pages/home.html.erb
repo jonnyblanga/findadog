@@ -1,67 +1,55 @@
-  <div class="home-navbar">
-    <%= render 'shared/navbar-transparent' %>
-  </div>
+<div class="home-navbar">
+  <%= render 'shared/navbar' %>
+</div>
 
+<div class="landing-banner">
 
-  <div class="landing-banner">
-    
-      <div class="images-slider">
-        <div class="image-slide1">
-      </div>
-      <div class="image-slide2">
-
-      </div>
-      <div class="image-slide3">
-      </div>
+  <div class="images-slider">
+    <div class="image-slide1">
     </div>
 
-    <div class="wrapping-banner-content">
-      <div class="landing-text">
-        <h1>FINDADOG</h1>
-        <p>THIS IS A HEADER</p>
-        <div class="search-input">
+    <div class="image-slide2">
+    </div>
 
-          <div>
-            <form action="/dogs" method="get">
-            <input type="search" id="city" class="form-control" placeholder="Enter a city or an address..." name="query" />
-            </form>
-            <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
-            <script>
-              (function() {
-                var placesAutocomplete = places({
-                  appId: 'plYVUDBTQS0A',
-                  apiKey: 'f9e4d1ae6f7a3ea4ed4b35e064360a13',
-                  container: document.querySelector('#city'),
-                  templates: {
-                    value: function(suggestion) {
-                      return suggestion.name;
-                    }
-                  }
-                }).configure({
-                  type: 'city',
-                  aroundLatLngViaIP: false,
-                });
-              })();
-            </script>
-          </div>
-
-          <div>
-            <button type="submit" class="btn-warning btn-search"><i class="fa fa-search"></i></button>
-          </div>
-        </div>
-
-      </div>
-
-      <form action="/dogs" method="get">
-        <div class="search-input">
-          <div>
-            <input type="search" id="address" class="enter-city" placeholder="Enter a city or an adress..." name="query" />
-          </div>
-          <div>
-            <button type="submit" class="btn-warning btn-search"><i class="fa fa-search"></i></button>
-          </div>
-        </div>
-      </form>
-
+    <div class="image-slide3">
     </div>
   </div>
+
+  <div class="wrapping-banner-content">
+    <div class="landing-text">
+      <h1>FINDADOG</h1>
+      <p>THIS IS A HEADER</p>
+    </div>
+
+    <div class="search-input">
+
+      <div>
+        <form action="/dogs" method="get">
+        <input type="search" id="city" class="form-control" placeholder="Enter a city or an address..." name="query" />
+        </form>
+        <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
+        <script>
+          (function() {
+            var placesAutocomplete = places({
+              appId: 'plYVUDBTQS0A',
+              apiKey: 'f9e4d1ae6f7a3ea4ed4b35e064360a13',
+              container: document.querySelector('#city'),
+              templates: {
+                value: function(suggestion) {
+                  return suggestion.name;
+                }
+              }
+            }).configure({
+              type: 'city',
+              aroundLatLngViaIP: false,
+            });
+          })();
+        </script>
+      </div>
+
+      <div>
+        <button type="submit" class="btn-warning btn-search"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
