@@ -1,0 +1,10 @@
+<h1>Messages#index</h1>
+<p>Find me in app/views/messages/index.html.erb</p>
+
+<!-- 5) list all messages I sent -->
+<h1>Here are all your messages:</h1>
+<% @messages.each do |message| %>
+<h2>Sender: <%= message.sender.email %></h2>
+<h2>Receiver: <%= message.receiver.email %></h2>
+<h2><%= message.context %></h2>
+<% end %>
