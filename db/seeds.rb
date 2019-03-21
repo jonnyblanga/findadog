@@ -90,6 +90,28 @@ User.create(
   address: " Via Nirone, 5, 20123 Milano MI"
 )
 
+User.create(
+  name: "Dog shelter",
+  username: "Dog shelter",
+  email: "aud@aud.aud",
+  phone: "0534-10101111",
+  password: "123456",
+  role: "shelter",
+  hours_of_operation: "24h a day, mon through sunday",
+  address: "400 Armada Rd, Arcadia, CA 91007"
+)
+
+User.create(
+  name: "Dog shelter",
+  username: "Dog shelter",
+  email: "auds@auds.auds",
+  phone: "0534-10101111",
+  password: "123456",
+  role: "shelter",
+  hours_of_operation: "24h a day, mon through sunday",
+  address: " 361 S Raymond Ave, Pasadena, CA 91105, USA"
+)
+
 puts 'Creating fake dogs...'
 
 dog = Dog.new(name: "Joey", gender: "male", date_of_birth: "2017-01-02", size: "small", breed: "Norrbottenspets", color: ["white", "beige"], is_hypoallergenic: "false", is_sterilized: "true", user_id: User.all.second.id)
