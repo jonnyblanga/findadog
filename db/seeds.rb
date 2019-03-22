@@ -98,7 +98,7 @@ User.create(
   password: "123456",
   role: "shelter",
   hours_of_operation: "24h a day, mon through sunday",
-  address: "400 Armada Rd, Arcadia, CA 91007"
+  address: "400 Armada Rd, Arcadia, CA 91007, USA"
 )
 
 User.create(

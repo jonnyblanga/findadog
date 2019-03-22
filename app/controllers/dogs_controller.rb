@@ -5,18 +5,8 @@ class DogsController < ApplicationController
     @size = params[:size_query]
     @gender = params[:gender_query]
     colors = params[:colors] || Dog::COLORS
-    if params[:hypoallergenic_query] == "yes"
-      @hypoallergenic = true
-    else
-      @hypoallergenic = false
-    end
-
-    if params[:sterilized_query] == "yes"
-      @sterilized = true
-    else
-      @sterilized = false
-    end
-
+    @hypoallergenic = params[:hypoallergenic_query] == "yes" ? true : false
+    @sterilized = params[:sterilized_query] == "yes" ? true : false
 
     @dogs = Dog.all
 
@@ -28,7 +18,7 @@ class DogsController < ApplicationController
     query = colors.map { |color| "color ILIKE '%#{color}%'"  }.join(" OR ")
 
     @dogs = @dogs.where(query)
-    # Siliva if you are going to change this code then tell me first so I can copy it becuase I like this code
+    # Silvia if you are going to change this code then tell me first so I can copy it becuase I like this code
 
     @query = params[:query]
     if @query.present?
@@ -57,8 +47,9 @@ class DogsController < ApplicationController
   end
 
   def create
-    params[:dog][:color].delete_at(0)
     @dog = Dog.new(dog_params)
+    params[:dog][:color].delete_at(0)
+    @dog.color = params[:dog][:color]
     @dog.user = current_user
     if @dog.save
       redirect_to mydogs_path
