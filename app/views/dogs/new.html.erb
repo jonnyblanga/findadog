@@ -14,9 +14,15 @@
 
     <%= f.input :is_hypoallergenic, as: :boolean, checked_value: true, unchecked_value: false %>
     <%= f.input :is_sterilized, as: :boolean, checked_value: true, unchecked_value: false %>
-
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
+    <%= f.file_field :pictures, multiple: true %>
+
+    <%#= f.input :pictures, as: :file, input_html: {name: "dog[pictures][]", multiple: true} %>
+
+<!-- , html: { multipart: true } -->
+
+    <%#= f.hidden_field :pictures %>
 
     <%= f.button :submit, :id => 'btn-ghost' %>
   <% end %>

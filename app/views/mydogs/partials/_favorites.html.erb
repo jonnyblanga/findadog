@@ -10,8 +10,8 @@
           <h2><%= favorite.dog.name %>, <%= favorite.dog.gender %> </h2>
           <% now = Date.today %>
           <% age = now.year - favorite.dog.date_of_birth.year %>
-          <% age = "few months" if age == 0 %>
-          <h3><%= age %> </h3>
+
+          <h3><%= (age > (1 || 0)) ? "#{age} years old" : "#{age} year old" %> </h3>
         </div>
         <div>
           <%= link_to dog_mydog_path(favorite.dog.id, favorite.id), method: :delete do %>

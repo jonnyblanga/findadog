@@ -2,7 +2,21 @@
 <% @dog.color.each do |color|%>
 <p><%= color %></p>
 <% end %>
+<% if @dog.photo %>
+<div>
+  <%= cl_image_tag(@dog.photo, class: "dog-photo") %>
+ </div>
+<% else %>
+  <p>Photo profile is missing.</p>
+<% end %>
 
+<% if @dog.pictures %>
+  <% @dog.pictures.each do |pic|%>
+  <div>
+  <%= cl_image_tag(pic, class: "dog-photo") %>
+  </div>
+  <% end %>
+<% end %>
 
 <% if current_user.role == "user" %>
   <%= link_to "Message the shelter", new_message_path(dog_id: @dog.id), class: "btn-ghost" %>

@@ -51,6 +51,9 @@ class DogsController < ApplicationController
     params[:dog][:color].delete_at(0)
     @dog.color = params[:dog][:color]
     @dog.user = current_user
+
+    @dog.pictures = params[:dog][:pictures]
+
     if @dog.save
       redirect_to mydogs_path
     else
@@ -91,7 +94,7 @@ class DogsController < ApplicationController
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :gender, :date_of_birth, :size, :breed, :color, :is_hypoallergenic, :is_sterilized, :pictures, :photo)
+    params.require(:dog).permit(:name, :gender, :date_of_birth, :size, :breed, :color, :is_hypoallergenic, :is_sterilized, :photo, {pictures: []})
   end
 
   def find_dog
