@@ -1,0 +1,31 @@
+<div class="search-input">
+  <div>
+    <form action="/dogs" method="get">
+      <input type="search" id="city" class="form-control" placeholder="Enter a city or an address..." name="query" />
+
+      <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
+      <script>
+        (function() {
+          var placesAutocomplete = places({
+            appId: 'plYVUDBTQS0A',
+            apiKey: 'f9e4d1ae6f7a3ea4ed4b35e064360a13',
+            container: document.querySelector('#city'),
+            templates: {
+              value: function(suggestion) {
+                return suggestion.name;
+              }
+            }
+          }).configure({
+            type: 'city',
+            aroundLatLngViaIP: false,
+          });
+        })();
+      </script>
+    </div>
+
+    <div>
+      <button type="submit" class="btn-warning btn-search form-control"><i class="fa fa-search"></i></button>
+    </div>
+    </form>
+  </div>
+</div>
