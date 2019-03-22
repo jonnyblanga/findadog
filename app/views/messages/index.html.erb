@@ -6,17 +6,20 @@
   <div class="row">
     <% @messages.each do |message| %>
     <div class="message">
+
       <div class="message-info">
         <p>From: <%= message.sender.email %></p>
         <p>To: <%= message.receiver.email %></p>
       </div>
+
       <div class="message-context">
         <p><%= message.context %></p>
+        <button id="delete-btn"><%= link_to "Delete Message", message_path(message), data: { confirm: "Are you sure?" }, method: :delete %></button>
       </div>
+
      </div>
  </div>
  <% end %>
 </div>
-
 
 
