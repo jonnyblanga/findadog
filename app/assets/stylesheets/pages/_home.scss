@@ -21,11 +21,13 @@
   padding-top: 20%;
   position: absolute;
   left: 0;
-right: 0;
-margin-left: auto;
-margin-right: auto;
-width:280px;
-
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width:400px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .search-input {
@@ -33,12 +35,21 @@ width:280px;
   justify-content: center;
 }
 
-.enter-city {
-  width: 320px;
+#enter-city {
+  width:100%;
   border-radius: 4px 0  0 4px;
 }
 
-
+.text {
+  font-size: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 
 .image-slide1,.image-slide2,.image-slide3 {
   position: absolute;
@@ -55,23 +66,21 @@ width:280px;
   animation-duration: 30s;
 }
 
-
-
 .image-slide2 {
   background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('doglanding4.jpg')no-repeat center;
   background-size: cover;
   animation:fade2 infinite;
   animation-duration: 30s;
-
 }
+
 .image-slide3 {
     background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('doglanding5.jpg')no-repeat center;
   background-size: cover;
     background-size: cover;
     animation:fade3 infinite;
     animation-duration: 30s;
-
 }
+
 @keyframes fade {
   0%   {opacity:1}
   33.333% { opacity: 0}
