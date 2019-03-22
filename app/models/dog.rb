@@ -2,6 +2,7 @@ class Dog < ApplicationRecord
   serialize :color, Array
 
   belongs_to :user
+  has_many :favorites, dependent: :destroy
   mount_uploader :photo, PhotoUploader
   mount_uploaders :pictures, PictureUploader
 
