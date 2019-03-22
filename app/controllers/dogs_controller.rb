@@ -33,6 +33,37 @@ class DogsController < ApplicationController
   end
 
   def show
+    if @dog.gender == "male"
+      @gender_dog = "boy"
+    else
+      @gender_dog = "girl"
+    end
+
+    if @dog.gender == "male"
+      @he_she = "he"
+    else
+      @he_she = "she"
+    end
+
+    if @dog.size == "small"
+      @size_dog = "small"
+    elsif @dog.size = "large"
+      @size_dog = "big"
+    else
+      @size_dog = "normal sized"
+    end
+
+    if @dog.is_sterilized == true
+      @steralized_string = "is steralized"
+    else
+      @steralized_string = "is not steralized"
+    end
+
+    if @dog.is_hypoallergenic == true
+      @hypoallergenic_string = "is hypoallergenic"
+    else
+      @hypoallergenic_string = "is not hypoallergenic"
+    end
     @shelter = @dog.user
 
     @marker = {
