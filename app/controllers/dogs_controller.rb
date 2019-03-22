@@ -34,7 +34,7 @@ class DogsController < ApplicationController
     if @query.present?
       @users = User.near(@query, 500)
     else
-      @users = User.where(longitude:nil, latitude:nil)
+      @users = User.where.not(longitude:nil, latitude:nil)
     end
 
     if @users.any?
