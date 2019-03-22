@@ -30,15 +30,16 @@ class DogsController < ApplicationController
     @dogs = @dogs.where(query)
     # Siliva if you are going to change this code then tell me first so I can copy it becuase I like this code
 
-
     @query = params[:query]
-    if @query.empty?
+    if @query.present?
       @users = User.where.not(longitude:nil, latitude:nil)
     else
       @users = User.near(@query, 500)
     end
-    
-    @dogs = @dogs.where(user_id: @users.pluck(:id))
+
+    if @users.any?
+      @dogs = @dogs.where(user_id: @users.map { |user| user.id })
+    end
   end
 
   def show
