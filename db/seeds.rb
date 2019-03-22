@@ -91,8 +91,8 @@ User.create(
 )
 
 User.create(
-  name: "Dog shelter",
-  username: "Dog shelter",
+  name: "Audrey's Dog Shelter",
+  username: "Audrey's Dog Shelter",
   email: "aud@aud.aud",
   phone: "0534-10101111",
   password: "123456",
@@ -102,8 +102,8 @@ User.create(
 )
 
 User.create(
-  name: "Dog shelter",
-  username: "Dog shelter",
+  name: "Pasadena Humane Society",
+  username: "Pasadena Humane Society",
   email: "auds@auds.auds",
   phone: "0534-10101111",
   password: "123456",

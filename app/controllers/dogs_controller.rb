@@ -2,13 +2,23 @@ class DogsController < ApplicationController
   before_action :find_dog, only: [:show, :edit, :update, :destroy]
 
   def index
+    @search = params[:search]
+    if @search.present?
+      @users = User.near(@search, 500)
+    else
+      @users = User.all
+    end
+
+    @dogs = Dog
+
+    @dogs = @dogs.where(user_id: @users.map { |user| user.id })
+
     @size = params[:size_query]
     @gender = params[:gender_query]
     colors = params[:colors] || Dog::COLORS
     @hypoallergenic = params[:hypoallergenic_query] == "yes" ? true : false
     @sterilized = params[:sterilized_query] == "yes" ? true : false
 
-    @dogs = Dog.all
 
     @dogs = @dogs.where(size: @size) if @size.present?
     @dogs = @dogs.where(gender: @gender) if @gender.present?
@@ -20,16 +30,6 @@ class DogsController < ApplicationController
     @dogs = @dogs.where(query)
     # Silvia if you are going to change this code then tell me first so I can copy it becuase I like this code
 
-    @query = params[:query]
-    if @query.present?
-      @users = User.near(@query, 500)
-    else
-      @users = User.where.not(longitude:nil, latitude:nil)
-    end
-
-    if @users.any?
-      @dogs = @dogs.where(user_id: @users.map { |user| user.id })
-    end
   end
 
   def show
