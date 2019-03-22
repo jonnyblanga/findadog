@@ -1,4 +1,4 @@
-<%= link_to root_path, class: "navbar-brand" do %>
+<%= link_to dogs_path, class: "navbar-brand" do %>
     <%= image_tag "doglogo.png" %>
     <% end %>
 
@@ -28,7 +28,6 @@
             <%= link_to "My Profile", me_path, class: "dropdown-item" %>
             <% if current_user.role == "user" %>
               <%= link_to "My Favorite Dogs", mydogs_path, class: "dropdown-item" %>
-              <%= link_to "My Messages", messages_path, class: "dropdown-item" %>
             <% else %>
               <%= link_to "My Dogs", mydogs_path, class: "dropdown-item" %>
             <% end %>

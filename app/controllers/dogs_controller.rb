@@ -2,23 +2,23 @@ class DogsController < ApplicationController
   before_action :find_dog, only: [:show, :edit, :update, :destroy]
 
   def index
+    @search = params[:search]
+    if @search.present?
+      @users = User.near(@search, 500)
+    else
+      @users = User.all
+    end
+
+    @dogs = Dog
+
+    @dogs = @dogs.where(user_id: @users.map { |user| user.id })
+
     @size = params[:size_query]
     @gender = params[:gender_query]
     colors = params[:colors] || Dog::COLORS
-    if params[:hypoallergenic_query] == "yes"
-      @hypoallergenic = true
-    else
-      @hypoallergenic = false
-    end
+    @hypoallergenic = params[:hypoallergenic_query] == "yes" ? true : false
+    @sterilized = params[:sterilized_query] == "yes" ? true : false
 
-    if params[:sterilized_query] == "yes"
-      @sterilized = true
-    else
-      @sterilized = false
-    end
-
-
-    @dogs = Dog.all
 
     @dogs = @dogs.where(size: @size) if @size.present?
     @dogs = @dogs.where(gender: @gender) if @gender.present?
@@ -28,18 +28,8 @@ class DogsController < ApplicationController
     query = colors.map { |color| "color ILIKE '%#{color}%'"  }.join(" OR ")
 
     @dogs = @dogs.where(query)
-    # Siliva if you are going to change this code then tell me first so I can copy it becuase I like this code
+    # Silvia if you are going to change this code then tell me first so I can copy it becuase I like this code
 
-    @query = params[:query]
-    if @query.present?
-      @users = User.near(@query, 500)
-    else
-      @users = User.where(longitude:nil, latitude:nil)
-    end
-
-    if @users.any?
-      @dogs = @dogs.where(user_id: @users.map { |user| user.id })
-    end
   end
 
   def show
@@ -84,13 +74,16 @@ class DogsController < ApplicationController
 
   def new
     @dog = Dog.new
-    @breed = ["Norrbottenspets", "Old English Sheepdog", "Parson Russell Terrier", "Pomeranian", "Rottweiler", "Russell Terrier", "Akita", "Beagle", "French Bulldog", "Dalmatian", "German Sheperd", "Labrador", "Maltese", "Dachshund", "Doberman", "Chihuahua"]
   end
 
   def create
-    params[:dog][:color].delete_at(0)
     @dog = Dog.new(dog_params)
+    params[:dog][:color].delete_at(0)
+    @dog.color = params[:dog][:color]
     @dog.user = current_user
+
+    @dog.pictures = params[:dog][:pictures]
+
     if @dog.save
       redirect_to mydogs_path
     else
@@ -99,19 +92,12 @@ class DogsController < ApplicationController
   end
 
   def edit
-    @breed = ["Norrbottenspets", "Old English Sheepdog", "Parson Russell Terrier", "Pomeranian", "Rottweiler", "Russell Terrier", "Akita", "Beagle", "French Bulldog", "Dalmatian", "German Sheperd", "Labrador", "Maltese", "Dachshund", "Doberman", "Chihuahua"]
   end
 
   def update
-    color_string = params[:dog][:color]
-    if color_string.include? " "
-      color = color_string.split(" ")
-    else
-      color = [color_string]
-    end
     params_update = dog_params
-    params_update[:color] = color
-
+    params[:dog][:color].delete_at(0)
+    params_update[:color] = params[:dog][:color]
     if @dog.update(params_update)
       redirect_to mydogs_path
     else
@@ -131,7 +117,7 @@ class DogsController < ApplicationController
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :gender, :date_of_birth, :size, :breed, :color, :is_hypoallergenic, :is_sterilized, :pictures, :photo)
+    params.require(:dog).permit(:name, :gender, :date_of_birth, :size, :breed, :color, :is_hypoallergenic, :is_sterilized, :photo, {pictures: []})
   end
 
   def find_dog

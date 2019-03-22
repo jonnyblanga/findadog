@@ -1,3 +1,4 @@
+
 <div class="container show-container">
   <div class="row">
     <div class="col-md-8 container-for-the-show-page">
@@ -108,6 +109,16 @@
 
 
 
+
+
+
+<%= social_share_button_tag("Check out #{@dog.name} on FindADog!", :url => "http://www.findadog.site/dogs/#{@dog.id}", :popup => "true", desc: "Check out #{@dog.name} on FindADog!", :image => @dog.photo) %>
+
+
+
+<% if current_user.role == "user" %>
+  <%#= link_to "Message the shelter", new_message_path(dog_id: @dog.id), class: "btn-ghost" %>
+  <a href="mailto: <%= @shelter.email %>" class="btn-ghost">Contact the shelter</a>
 
 
 

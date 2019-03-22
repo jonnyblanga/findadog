@@ -1,56 +1,77 @@
-<div class="home-navbar">
-  <%= render 'shared/navbar' %>
-</div>
+<!-- <div class="landing-page"> -->
 
-<div class="landing-banner">
-
-  <div class="images-slider">
-    <div class="image-slide1">
-    </div>
-
-    <div class="image-slide2">
-    </div>
-
-    <div class="image-slide3">
-    </div>
+  <div class="home-navbar">
+    <%= render 'shared/navbar' %>
   </div>
 
+
+  <div class="landing-banner">
+
+    <div class="images-slider">
+      <div class="image-slide1">
+      </div>
+
+      <div class="image-slide2">
+      </div>
+
+      <div class="image-slide3">
+      </div>
+    </div>
   <div class="wrapping-banner-content">
-    <div class="text">
+    <div class="home-text">
       <h1>FINDADOG</h1>
-      <p>THIS IS A HEADER</p>
+      <p>Save a dog, find a friend!</p>
     </div>
 
-    <div class="search-input">
+    <%= render partial: "shared/partials/search" %>
 
-      <div>
-        <form action="/dogs" method="get">
-        <input type="search" id="city" class="form-control" placeholder="Enter a city or an address..." name="query" />
+  </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
-        <script>
-          (function() {
-            var placesAutocomplete = places({
-              appId: 'plYVUDBTQS0A',
-              apiKey: 'f9e4d1ae6f7a3ea4ed4b35e064360a13',
-              container: document.querySelector('#city'),
-              templates: {
-                value: function(suggestion) {
-                  return suggestion.name;
-                }
-              }
-            }).configure({
-              type: 'city',
-              aroundLatLngViaIP: false,
-            });
-          })();
-        </script>
+  </div>
+
+
+
+
+  <div class="dogs-landing-header">
+    <h3>Some of the dogs looking for a new home</h3>
+  </div>
+
+<div class="card-container">
+  <div class="card-row">
+    <% @dogs_rand.each do |dog| %>
+    <div class="card-trip col-xs-3">
+      <% if dog.photo.present? %>
+      <%= cl_image_tag(dog.photo, class: "image") %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= link_to dog.name, dog_path(dog) %>, <%= dog.gender %> </h2>
+          <% now = Date.today %>
+          <% age = now.year - dog.date_of_birth.year %>
+          <% age = "few months" if age == 0 %>
+          <h3><%= age %> </h3>
+        </div>
+
+        <div>
+          <% if (user_signed_in?) && (Favorite.where(dog: dog, user: current_user).present?) %>
+            <%= link_to dog_mydog_path(dog.id, Favorite.where(dog: dog, user: current_user).first.id), method: :delete do %>
+            <i class="fas fa-heart" id="active"></i>
+            <% end %>
+          <% else %>
+            <%= link_to dog_mydogs_path(dog.id), method: :post do %>
+            <i class="fas fa-heart"></i>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-
-      <div>
-        <button type="submit" class="btn-warning btn-search form-control"><i class="fa fa-search"></i></button>
-      </div>
-      </form>
+      <% end %>
     </div>
+    <% end %>
   </div>
 </div>
+
+
+
+
+
+
+
