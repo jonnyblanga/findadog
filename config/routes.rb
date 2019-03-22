@@ -12,6 +12,4 @@ Rails.application.routes.draw do
 
   resources :mydogs, only: [:index]
 
-  resources :messages, only: [:new, :create, :index, :destroy]
-
 end
