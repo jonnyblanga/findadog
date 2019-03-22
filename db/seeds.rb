@@ -7,7 +7,6 @@
 
 require 'faker'
 puts 'Cleaning database...'
-Message.destroy_all
 Favorite.destroy_all
 Dog.destroy_all
 User.destroy_all
