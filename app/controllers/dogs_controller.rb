@@ -43,7 +43,6 @@ class DogsController < ApplicationController
 
   def new
     @dog = Dog.new
-    @breed = ["Norrbottenspets", "Old English Sheepdog", "Parson Russell Terrier", "Pomeranian", "Rottweiler", "Russell Terrier", "Akita", "Beagle", "French Bulldog", "Dalmatian", "German Sheperd", "Labrador", "Maltese", "Dachshund", "Doberman", "Chihuahua"]
   end
 
   def create
@@ -51,6 +50,9 @@ class DogsController < ApplicationController
     params[:dog][:color].delete_at(0)
     @dog.color = params[:dog][:color]
     @dog.user = current_user
+
+    @dog.pictures = params[:dog][:pictures]
+
     if @dog.save
       redirect_to mydogs_path
     else
@@ -59,19 +61,12 @@ class DogsController < ApplicationController
   end
 
   def edit
-    @breed = ["Norrbottenspets", "Old English Sheepdog", "Parson Russell Terrier", "Pomeranian", "Rottweiler", "Russell Terrier", "Akita", "Beagle", "French Bulldog", "Dalmatian", "German Sheperd", "Labrador", "Maltese", "Dachshund", "Doberman", "Chihuahua"]
   end
 
   def update
-    color_string = params[:dog][:color]
-    if color_string.include? " "
-      color = color_string.split(" ")
-    else
-      color = [color_string]
-    end
     params_update = dog_params
-    params_update[:color] = color
-
+    params[:dog][:color].delete_at(0)
+    params_update[:color] = params[:dog][:color]
     if @dog.update(params_update)
       redirect_to mydogs_path
     else
@@ -91,7 +86,7 @@ class DogsController < ApplicationController
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :gender, :date_of_birth, :size, :breed, :color, :is_hypoallergenic, :is_sterilized, :pictures, :photo)
+    params.require(:dog).permit(:name, :gender, :date_of_birth, :size, :breed, :color, :is_hypoallergenic, :is_sterilized, :photo, {pictures: []})
   end
 
   def find_dog

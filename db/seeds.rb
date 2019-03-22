@@ -116,8 +116,10 @@ puts 'Creating fake dogs...'
 
 dog = Dog.new(name: "Joey", gender: "male", date_of_birth: "2017-01-02", size: "small", breed: "Norrbottenspets", color: ["white", "beige"], is_hypoallergenic: "false", is_sterilized: "true", user_id: User.all.second.id)
 dog.remote_photo_url = "https://www.101dogbreeds.com/wp-content/uploads/2016/12/Norrbottenspets-Pictures.jpg"
-dog.remote_pictures_urls = ["http://skadi.se/wp-content/uploads/2015/04/agnar11.jpg"]
-dog.remote_pictures_urls = ["https://upload.wikimedia.org/wikipedia/en/7/7b/Norrbottenspets_Karina_2008.jpg"]
+dog.remote_pictures_urls = [
+  "http://skadi.se/wp-content/uploads/2015/04/agnar11.jpg",
+  "https://upload.wikimedia.org/wikipedia/en/7/7b/Norrbottenspets_Karina_2008.jpg"
+]
 dog.save
 
 dog = Dog.new(name: "Jamie", gender: "female", date_of_birth: "2017-12-15", size: "small", breed: "Norrbottenspets", color: ["white", "beige"], is_hypoallergenic: "false", is_sterilized: "false", user_id: User.all.second.id)

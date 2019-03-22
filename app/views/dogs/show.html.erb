@@ -1,12 +1,23 @@
 <h1><%= @dog.name %></h1>
-<% if @dog.photo.present? %>
-<%= cl_image_tag(@dog.photo, class: "image") %>
+<%= social_share_button_tag("Check out #{@dog.name} on FindADog!", :url => "http://www.findadog.site/dogs/#{@dog.id}", :popup => "true", desc: "Check out #{@dog.name} on FindADog!", :image => @dog.photo) %>
+<% if @dog.photo %>
+  <div>
+    <%= cl_image_tag(@dog.photo, class: "dog-photo") %>
+  </div>
+<% else %>
+  <p>Photo profile is missing.</p>
 <% end %>
 <% @dog.color.each do |color|%>
-<p><%= color %></p>
+  <p><%= color %></p>
 <% end %>
 
-<%= social_share_button_tag("Check out #{@dog.name} on FindADog!", :url => "http://www.findadog.site/dogs/#{@dog.id}", :popup => "true", desc: "Check out #{@dog.name} on FindADog!", :image => @dog.photo) %>
+<% if @dog.pictures %>
+  <% @dog.pictures.each do |pic|%>
+  <div>
+  <%= cl_image_tag(pic, class: "dog-photo") %>
+  </div>
+  <% end %>
+<% end %>
 
 
 <% if current_user.role == "user" %>
