@@ -10,18 +10,21 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.save
 
-        redirect_to messages_index_path
+        redirect_to messages_path
 
   end
 
   def index
     # 4) list all my messages, put it in @messages
-    @messages = Message.all
+    @messages = Message.where(from_user_id: current_user.id)
   end
 
   def destroy
-  end
+    message = Message.find(params[:id])
+    message.destroy
 
+    redirect_to messages_path
+  end
 
 
 private
