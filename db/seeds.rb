@@ -258,23 +258,6 @@ dog = Dog.new(name: "Augie", gender: "male", date_of_birth: "2015-07-12", size: 
 dog.remote_photo_url = "https://www.pets4homes.co.uk/images/breeds/56/9b8f8158056fc5420a03372c9772678e.jpeg"
 dog.save
 
-puts 'Creating fake messages...'
-
-Message.create( context: "Hello I'm interested in adopting a golden retriever from your shelter",  from_user_id: User.all.first.id,  to_user_id: User.all.second.id)
-Message.create( context: "That is great, he is a very good dog",  from_user_id: User.all.second.id,  to_user_id: User.all.first.id)
-Message.create( context: "wow that’s amazing",  from_user_id: User.all.first.id,  to_user_id: User.all.second.id)
-Message.create( context: "Does the dog have all of his vaccine shots, I saw on the dog card that it specified that he in fact has gotten vaccine shots but I am asking just to be sure. Even if he doesn’t have vaccine shots I would love to adopt him",  from_user_id: User.all.first.id,  to_user_id: User.all.second.id)
-Message.create( context: "Yes he is vaccinated, that’s great, as you see on the website our adoption times are from 9 - 5",  from_user_id: User.all.second.id,  to_user_id: User.all.first.id)
-Message.create( context: "So when do you want to arrive to adopt Luna, also don’t forget you have to sign some paperwork",  from_user_id: User.all.second.id,  to_user_id: User.all.first.id)
-Message.create( context: "Yes I would love to arrive tomorrow at one o'clock to see the dog and hopefully adopt him and I love paperwork",  from_user_id: User.all.first.id,  to_user_id: User.all.second.id)
-Message.create( context: "I am not allergic to the dog so it shouldn’t be a problem",  from_user_id: User.all.first.id,  to_user_id: User.all.second.id)
-Message.create( context: "wow this website is amazing so many people adopt dogs through this",  from_user_id: User.all.second.id,  to_user_id:User.all.first.id)
-Message.create( context: "Yes wow such an amazing website I agree",  from_user_id: User.all.first.id,  to_user_id: User.all.second.id)
-Message.create( context: "Can you send me your whatsapp number so we can chat over the phone a bit.",  from_user_id: User.all.first.id,  to_user_id: User.all.second.id)
-Message.create( context: "No need because the super capable team at findadog already thought of this and integrated a WhatsApp API into their platform, man they thought of everything.",  from_user_id: User.all.second.id,  to_user_id:User.all.first.id)
-Message.create( context: "wow you are right, they are so amazing, I will call you soon and maybe we could video chat so I can see the dog",  from_user_id: User.all.first.id,  to_user_id: User.all.second.id)
-Message.create( context:  "yes great idea, so hear from you soon",  from_user_id: User.all.second.id,  to_user_id:User.all.first.id)
-Message.create( context: "yes I’m going to call you soon hear from you then",  from_user_id: User.all.first.id,  to_user_id: User.all.second.id)
 
 puts 'Creating favorites...'
 

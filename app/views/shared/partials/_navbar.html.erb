@@ -28,7 +28,6 @@
             <%= link_to "My Profile", me_path, class: "dropdown-item" %>
             <% if current_user.role == "user" %>
               <%= link_to "My Favorite Dogs", mydogs_path, class: "dropdown-item" %>
-              <%= link_to "My Messages", messages_path, class: "dropdown-item" %>
             <% else %>
               <%= link_to "My Dogs", mydogs_path, class: "dropdown-item" %>
             <% end %>
