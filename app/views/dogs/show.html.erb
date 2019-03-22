@@ -1,7 +1,12 @@
 <h1><%= @dog.name %></h1>
+<% if @dog.photo.present? %>
+<%= cl_image_tag(@dog.photo, class: "image") %>
+<% end %>
 <% @dog.color.each do |color|%>
 <p><%= color %></p>
 <% end %>
+
+<%= social_share_button_tag("Check out #{@dog.name} on FindADog!", :url => "http://www.findadog.site/dogs/#{@dog.id}", :popup => "true", desc: "Check out #{@dog.name} on FindADog!", :image => @dog.photo) %>
 
 
 <% if current_user.role == "user" %>

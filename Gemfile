@@ -19,6 +19,7 @@ gem 'geocoder'
 gem 'faker'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
+gem 'social-share-button', github: "huacnlee/social-share-button"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
