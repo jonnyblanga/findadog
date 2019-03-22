@@ -43,7 +43,6 @@ class DogsController < ApplicationController
 
   def new
     @dog = Dog.new
-    @breed = ["Norrbottenspets", "Old English Sheepdog", "Parson Russell Terrier", "Pomeranian", "Rottweiler", "Russell Terrier", "Akita", "Beagle", "French Bulldog", "Dalmatian", "German Sheperd", "Labrador", "Maltese", "Dachshund", "Doberman", "Chihuahua"]
   end
 
   def create
@@ -62,19 +61,12 @@ class DogsController < ApplicationController
   end
 
   def edit
-    @breed = ["Norrbottenspets", "Old English Sheepdog", "Parson Russell Terrier", "Pomeranian", "Rottweiler", "Russell Terrier", "Akita", "Beagle", "French Bulldog", "Dalmatian", "German Sheperd", "Labrador", "Maltese", "Dachshund", "Doberman", "Chihuahua"]
   end
 
   def update
-    color_string = params[:dog][:color]
-    if color_string.include? " "
-      color = color_string.split(" ")
-    else
-      color = [color_string]
-    end
     params_update = dog_params
-    params_update[:color] = color
-
+    params[:dog][:color].delete_at(0)
+    params_update[:color] = params[:dog][:color]
     if @dog.update(params_update)
       redirect_to mydogs_path
     else
