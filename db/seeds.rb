@@ -218,7 +218,7 @@ dog = Dog.new(name: "Buddy", gender: "male", date_of_birth: "2014-04-23", size: 
 dog.remote_photo_url = "http://4.bp.blogspot.com/-2gg6M-dHfJU/Tg-fDZY5r1I/AAAAAAAALlM/v2IcgysOHKU/s1600/2976.jpg"
 dog.save
 
-dog = Dog.new(name: "Lexy", gender: "female", date_of_birth: "2010-10-10", size: "small", breed: "Maltese", color: ["white"], is_hypoallergenic: "false", is_sterilized: "true", user_id: User.all.last.id)
+dog = Dog.new(name: "Lexy", gender: "female", date_of_birth: "2010-10-10", size: "small", breed: "Maltese", color: ["white"], is_hypoallergenic: "false", is_sterilized: "true", user_id: User.all.second.id)
 dog.remote_photo_url = "https://bepuppyblog-4fef.kxcdn.com/wp-content/uploads/2017/04/cane-maltese.jpg"
 dog.save
 
