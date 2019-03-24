@@ -28,7 +28,7 @@
     <label class="form-control-label select optional" for="dog_breed">
       Breed
     </label>
-    <select class="form-control select optional" name="size_query" id="dog_breed">
+    <select class="form-control select optional" name="breed_query" id="dog_breed">
       <option value=""></option>
       <% Dog::BREEDS.each do |breed| %>
         <option value="<%= breed %>" <%= params[:breed_query] == breed ? "selected" : nil%>><%= breed %></option>
