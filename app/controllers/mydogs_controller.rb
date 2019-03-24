@@ -10,7 +10,7 @@ class MydogsController < ApplicationController
   def create
     @favorite = Favorite.new(user: current_user, dog_id: params[:dog_id])
     @favorite.save
-    redirect_to dogs_path
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
