@@ -10,6 +10,7 @@ class CreateDogs < ActiveRecord::Migration[5.2]
       t.boolean :is_hypoallergenic, default: false
       t.boolean :is_sterilized, default: false
       t.string :photo
+      t.text :description
       t.references :user, foreign_key: true
 
       t.timestamps
