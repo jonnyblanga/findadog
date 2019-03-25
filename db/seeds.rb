@@ -124,10 +124,11 @@ User.create(
 )
 
 all_shelters = User.where(role: "shelter")
+good_shelter = all_shelters.first
 
 puts 'Creating fake dogs...'
 
-dog = Dog.new(name: "Joey", gender: "male", date_of_birth: "2017-01-02", size: "small", breed: "Norrbottenspets", color: ["white", "beige"], is_hypoallergenic: "false", is_sterilized: "true", user_id: all_shelters.second.id)
+dog = Dog.new(name: "Joey", gender: "male", date_of_birth: "2017-01-02", size: "small", breed: "Norrbottenspets", color: ["white", "beige"], is_hypoallergenic: "false", is_sterilized: "true", user_id: good_shelter.id)
 dog.remote_photo_url = "https://www.101dogbreeds.com/wp-content/uploads/2016/12/Norrbottenspets-Pictures.jpg"
 dog.remote_pictures_urls = [
   "http://skadi.se/wp-content/uploads/2015/04/agnar11.jpg",
@@ -135,35 +136,35 @@ dog.remote_pictures_urls = [
 ]
 dog.save
 
-dog = Dog.new(name: "Jamie", gender: "female", date_of_birth: "2017-12-15", size: "small", breed: "Norrbottenspets", color: ["white", "beige"], is_hypoallergenic: "false", is_sterilized: "false", user_id: all_shelters.second.id)
+dog = Dog.new(name: "Jamie", gender: "female", date_of_birth: "2017-12-15", size: "small", breed: "Norrbottenspets", color: ["white", "beige"], is_hypoallergenic: "false", is_sterilized: "false", user_id: good_shelter.id)
 dog.remote_photo_url = "https://www.101dogbreeds.com/wp-content/uploads/2016/12/Norrbottenspets.jpg"
 dog.save
 
-dog = Dog.new(name: "Nancy", gender: "female", date_of_birth: "2014-06-11", size: "medium", breed: "Old English Sheepdog", color: ["white", "gray"], is_hypoallergenic: "false", is_sterilized: "true", user_id: all_shelters.second.id)
+dog = Dog.new(name: "Nancy", gender: "female", date_of_birth: "2014-06-11", size: "medium", breed: "Old English Sheepdog", color: ["white", "gray"], is_hypoallergenic: "false", is_sterilized: "true", user_id: good_shelter.id)
 dog.remote_photo_url = "https://i.pinimg.com/originals/f5/66/52/f5665206ab52eafa4ad2d65141024eda.jpg"
 dog.save
 
-dog = Dog.new(name: "Shirley", gender: "female", date_of_birth: "2017-12-15", size: "medium", breed: "Old English Sheepdog", color: ["white", "gray"], is_hypoallergenic: "false", is_sterilized: "false", user_id: all_shelters.second.id)
+dog = Dog.new(name: "Shirley", gender: "female", date_of_birth: "2017-12-15", size: "medium", breed: "Old English Sheepdog", color: ["white", "gray"], is_hypoallergenic: "false", is_sterilized: "false", user_id: good_shelter.id)
 dog.remote_photo_url = "http://elelur.com/data_images/dog-breeds/old-english-sheepdog/old-english-sheepdog-08.jpg"
 dog.save
 
-dog = Dog.new(name: "Spot", gender: "male", date_of_birth: "2014-03-24", size: "small", breed: "Parson Russell Terrier", color: ["brown", "white"], is_hypoallergenic: "false", is_sterilized: "false", user_id: all_shelters.second.id)
+dog = Dog.new(name: "Spot", gender: "male", date_of_birth: "2014-03-24", size: "small", breed: "Parson Russell Terrier", color: ["brown", "white"], is_hypoallergenic: "false", is_sterilized: "false", user_id: good_shelter.id)
 dog.remote_photo_url = "https://cdn3-www.dogtime.com/assets/uploads/gallery/jack-russel-terrier-dog-breed-pictures/1-runforward.jpg"
 dog.save
 
-dog = Dog.new(name: "Reece", gender: "male", date_of_birth: "2015-06-20", size: "small", breed: "Parson Russell Terrier", color: ["brown", "white"], is_hypoallergenic: "true", is_sterilized: "false", user_id: all_shelters.second.id)
+dog = Dog.new(name: "Reece", gender: "male", date_of_birth: "2015-06-20", size: "small", breed: "Parson Russell Terrier", color: ["brown", "white"], is_hypoallergenic: "true", is_sterilized: "false", user_id: good_shelter.id)
 dog.remote_photo_url =  "https://vetstreet.brightspotcdn.com/dims4/default/82dc417/2147483647/crop/0x0%2B0%2B0/resize/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2F65%2F71b210a38611e087a80050568d634f%2Ffile%2FJack-Russell-Terrier-2-645mk062411.jpg"
 dog.save
 
-dog = Dog.new(name: "Shaniqua", gender: "female", date_of_birth: "2017-04-20", size: "small", breed: "Pomeranian", color: ["white"], is_hypoallergenic: "false", is_sterilized: "false", user_id: all_shelters.second.id)
+dog = Dog.new(name: "Shaniqua", gender: "female", date_of_birth: "2017-04-20", size: "small", breed: "Pomeranian", color: ["white"], is_hypoallergenic: "false", is_sterilized: "false", user_id: good_shelter.id)
 dog.remote_photo_url = "https://dogbreedatlas.com/images/dog-breed-photos/pomeranian/001/pomeranian-1490682869-1.jpg"
 dog.save
 
-dog = Dog.new(name: "Floof", gender: "female", date_of_birth: "2018-01-30", size: "small", breed: "Pomeranian", color: ["brown", "orange", "white"], is_hypoallergenic: "false", is_sterilized: "false", user_id: all_shelters.second.id)
+dog = Dog.new(name: "Floof", gender: "female", date_of_birth: "2018-01-30", size: "small", breed: "Pomeranian", color: ["brown", "orange", "white"], is_hypoallergenic: "false", is_sterilized: "false", user_id: good_shelter.id)
 dog.remote_photo_url = "https://s3.us-west-2.amazonaws.com/photos.puppyspot.com/breeds/238/card/500000283_medium.jpg"
 dog.save
 
-dog = Dog.new(name: "Hercules", gender: "male", date_of_birth: "2016-08-03", size: "large", breed: "Rottweiler", color: ["brown", "black"], is_hypoallergenic: "false", is_sterilized: "false", user_id: all_shelters.second.id)
+dog = Dog.new(name: "Hercules", gender: "male", date_of_birth: "2016-08-03", size: "large", breed: "Rottweiler", color: ["brown", "black"], is_hypoallergenic: "false", is_sterilized: "false", user_id: good_shelter.id)
 dog.remote_photo_url = "https://i.pinimg.com/736x/02/8e/17/028e17e5baace88a8f2da2ff19332849.jpg"
 dog.save
 
@@ -231,7 +232,7 @@ dog = Dog.new(name: "Buddy", gender: "male", date_of_birth: "2014-04-23", size: 
 dog.remote_photo_url = "http://4.bp.blogspot.com/-2gg6M-dHfJU/Tg-fDZY5r1I/AAAAAAAALlM/v2IcgysOHKU/s1600/2976.jpg"
 dog.save
 
-dog = Dog.new(name: "Lexy", gender: "female", date_of_birth: "2010-10-10", size: "small", breed: "Maltese", color: ["white"], is_hypoallergenic: "false", is_sterilized: "true", user_id: all_shelters.second.id)
+dog = Dog.new(name: "Lexy", gender: "female", date_of_birth: "2010-10-10", size: "small", breed: "Maltese", color: ["white"], is_hypoallergenic: "false", is_sterilized: "true", user_id: good_shelter.id)
 dog.remote_photo_url = "https://bepuppyblog-4fef.kxcdn.com/wp-content/uploads/2017/04/cane-maltese.jpg"
 dog.save
 
@@ -263,11 +264,11 @@ dog = Dog.new(name: "Bella", gender: "female", date_of_birth: "2018-12-19", size
 dog.remote_photo_url = "https://http2.mlstatic.com/chihuahua-cachorro-macho-D_NQ_NP_683900-MLA27566558302_062018-F.jpg"
 dog.save
 
-dog = Dog.new(name: "Greg", gender: "male", date_of_birth: "2018-10-29", size: "small", breed: "Bulldog", color: ["white", "golden"], is_hypoallergenic: "false", is_sterilized: "false", user_id: all_shelters.second.id)
+dog = Dog.new(name: "Greg", gender: "male", date_of_birth: "2018-10-29", size: "small", breed: "Bulldog", color: ["white", "golden"], is_hypoallergenic: "false", is_sterilized: "false", user_id: good_shelter.id)
 dog.remote_photo_url = "https://irp-cdn.multiscreensite.com/a123db97/dms3rep/multi/IMG_3571-03-08-17-05-55.JPG"
 dog.save
 
-dog = Dog.new(name: "Augie", gender: "male", date_of_birth: "2015-07-12", size: "small", breed: "Bulldog", color: ["white", "beige"], is_hypoallergenic: "false", is_sterilized: "false", user_id: all_shelters.second.id)
+dog = Dog.new(name: "Augie", gender: "male", date_of_birth: "2015-07-12", size: "small", breed: "Bulldog", color: ["white", "beige"], is_hypoallergenic: "false", is_sterilized: "false", user_id: good_shelter.id)
 dog.remote_photo_url = "https://www.pets4homes.co.uk/images/breeds/56/9b8f8158056fc5420a03372c9772678e.jpeg"
 dog.save
 
