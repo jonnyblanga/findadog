@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_03_25_093749) do
     t.boolean "is_hypoallergenic", default: false
     t.boolean "is_sterilized", default: false
     t.string "photo"
+    t.text "description"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

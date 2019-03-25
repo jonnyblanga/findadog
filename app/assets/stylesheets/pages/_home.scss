@@ -76,11 +76,11 @@
 }
 
 .image-slide3 {
-    background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('doglanding5.jpg')no-repeat center;
+  background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('doglanding5.jpg')no-repeat center;
   background-size: cover;
-    background-size: cover;
-    animation:fade3 infinite;
-    animation-duration: 30s;
+  background-size: cover;
+  animation:fade3 infinite;
+  animation-duration: 30s;
 }
 
 @keyframes fade {
