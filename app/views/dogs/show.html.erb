@@ -1,11 +1,13 @@
 <div>
-  <% if (current_user.role == "user") && (Favorite.where(dog: @dog, user: current_user).present?) %>
-    <%= link_to dog_mydog_path(@dog.id, Favorite.where(dog: @dog, user: current_user).first.id), method: :delete do %>
-      <i class="fas fa-heart" id="active"></i>
-    <% end %>
-  <% else %>
-    <%= link_to dog_mydogs_path(@dog.id), method: :post do %>
-      <i class="fas fa-heart"></i>
+  <% if (current_user.role == "user") %>
+    <% if (Favorite.where(dog: @dog, user: current_user).present?) %>
+      <%= link_to dog_mydog_path(@dog.id, Favorite.where(dog: @dog, user: current_user).first.id), method: :delete do %>
+        <i class="fas fa-heart" id="active"></i>
+      <% end %>
+    <% else %>
+      <%= link_to dog_mydogs_path(@dog.id), method: :post do %>
+        <i class="fas fa-heart"></i>
+      <% end %>
     <% end %>
   <% end %>
 </div>

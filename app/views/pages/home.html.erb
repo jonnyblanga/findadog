@@ -1,44 +1,38 @@
 <!-- <div class="landing-page"> -->
 
-  <div class="home-navbar">
-    <%= render 'shared/navbar' %>
-  </div>
+<div class="home-navbar">
+  <%= render 'shared/navbar' %>
+</div>
 
-
-  <div class="landing-banner">
-
-    <div class="images-slider">
-      <div class="image-slide1">
-      </div>
-
-      <div class="image-slide2">
-      </div>
-
-      <div class="image-slide3">
-      </div>
+<div class="landing-banner">
+  <div class="images-slider">
+    <div class="image-slide1">
     </div>
+
+    <div class="image-slide2">
+    </div>
+
+    <div class="image-slide3">
+    </div>
+  </div>
   <div class="wrapping-banner-content">
     <div class="home-text">
       <h1>FINDADOG</h1>
       <p>Save a dog, find a friend!</p>
     </div>
-
     <%= render partial: "shared/partials/search" %>
-
   </div>
-
-  </div>
-
+</div>
 
 
-
-  <div class="dogs-landing-header">
-    <h3>Some of the dogs looking for a new home</h3>
-  </div>
+<div class="dogs-landing-header">
+  <h3>Some of the dogs looking for a new home</h3>
+</div>
 
 <div class="card-container">
   <div class="card-row">
     <% @dogs_rand.each do |dog| %>
+    <%= link_to dog_path(dog) do %>
     <div class="card-trip col-xs-3">
       <% if dog.photo.present? %>
       <%= cl_image_tag(dog.photo, class: "image") %>
@@ -65,6 +59,7 @@
       </div>
       <% end %>
     </div>
+    <% end %>
     <% end %>
   </div>
 </div>
