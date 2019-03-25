@@ -19,7 +19,7 @@ user_1 = User.create(
   username: "admin",
   email: "silviasartor@ymail.com",
   password: "123456",
-  phone: "0534-32534564",
+  phone: "334-9753029",
   role: "user"
 )
 
@@ -28,7 +28,7 @@ user_2 = User.create(
   username: "Andrea1",
   email: "andrea@gmail.com",
   password: "123456",
-  phone: "0534-32534564",
+  phone: "331-6733028",
   role: "user"
 )
 
@@ -37,7 +37,7 @@ shelter_1 = User.create(
   name: "shelter",
   username: "shelter",
   email: "jonathanblanga@gmail.com",
-  phone: "0534-32534565",
+  phone: "02 9934 6310",
   password: "123456",
   role: "shelter",
   hours_of_operation: "24h a day, monday through sunday",
@@ -60,7 +60,7 @@ shelter_2 = User.create(
   name: "Homeless Dog",
   username: "Homeless Dog",
   email: "ivan.radeljevic12345@gmail.com",
-  phone: "0534-11111111",
+  phone: "02 5541 49101",
   password: "123456",
   role: "shelter",
   hours_of_operation: "24h a day, mon through sunday",
@@ -71,7 +71,7 @@ shelter_3 = User.create(
   name: "Help pets!",
   username: "Help pets!",
   email: "audrey@gmail.com",
-  phone: "0534-55555111",
+  phone: "02 2141 45801",
   password: "123456",
   role: "shelter",
   hours_of_operation: "24h a day, mon through sunday",
@@ -82,7 +82,7 @@ User.create(
   name: "Dogs lover",
   username: "Dogs lover",
   email: "silvia@silvial.com",
-  phone: "0534-77777111",
+  phone: "02 2241 49190",
   password: "123456",
   role: "shelter",
   hours_of_operation: "24h a day, mon through sunday",
@@ -93,7 +93,7 @@ User.create(
   name: "Dog shelter",
   username: "Dog shelter",
   email: "fra@fra.fra",
-  phone: "0534-10101111",
+  phone: "02 5652 9761",
   password: "123456",
   role: "shelter",
   hours_of_operation: "24h a day, mon through sunday",
@@ -104,7 +104,7 @@ User.create(
   name: "Audrey's Dog Shelter",
   username: "Audrey's Dog Shelter",
   email: "aud@aud.aud",
-  phone: "0534-10101111",
+  phone: "02 9901 9851",
   password: "123456",
   role: "shelter",
   hours_of_operation: "24h a day, mon through sunday",
@@ -115,7 +115,7 @@ User.create(
   name: "Pasadena Humane Society",
   username: "Pasadena Humane Society",
   email: "auds@auds.auds",
-  phone: "0534-10101111",
+  phone: "02 9728 9871",
   password: "123456",
   role: "shelter",
   hours_of_operation: "24h a day, mon through sunday",
@@ -295,14 +295,8 @@ Message.create(
 
 Message.create(
   from_user_id: user_1.id,
-  to_user_id: shelter_1.id,
-  content: "Are you open also on Christmas day?",
-)
-
-Message.create(
-  from_user_id: user_1.id,
   to_user_id: shelter_2.id,
-  content: "Are you open also the 1st of January?",
+  content: "Are you open also on Christmas day?",
 )
 
 Message.create(
