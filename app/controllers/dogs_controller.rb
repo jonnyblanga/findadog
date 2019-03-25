@@ -14,25 +14,39 @@ class DogsController < ApplicationController
     @dogs = @dogs.where(user_id: @users.map { |user| user.id })
 
     @size = params[:size_query]
+    @breed = params[:breed_query]
     @gender = params[:gender_query]
     colors = params[:colors] || Dog::COLORS
     @hypoallergenic = params[:hypoallergenic_query] == "yes" ? true : false
     @sterilized = params[:sterilized_query] == "yes" ? true : false
 
-
     @dogs = @dogs.where(size: @size) if @size.present?
+    @dogs = @dogs.where(breed: @breed) if @breed.present?
     @dogs = @dogs.where(gender: @gender) if @gender.present?
     @dogs = @dogs.where(is_hypoallergenic: @hypoallergenic) if @hypoallergenic.present?
     @dogs = @dogs.where(is_sterilized: @sterilized) if @sterilized.present?
 
-    query = colors.map { |color| "color ILIKE '%#{color}%'"  }.join(" OR ")
+    query = colors.map { |color| "color ILIKE '%#{color}%'" }.join(" OR ")
 
     @dogs = @dogs.where(query)
     # Silvia if you are going to change this code then tell me first so I can copy it becuase I like this code
-
   end
 
   def show
+    @gender_dog = @dog.gender == "male" ? "boy" : "girl"
+    @he_she = @dog.gender == "male" ? "he" : "she"
+
+    if @dog.size == "small"
+      @size_dog = "small"
+    elsif @dog.size = "large"
+      @size_dog = "big"
+    else
+      @size_dog = "normal sized"
+    end
+
+    @steralized_string = @dog.is_sterilized == true ? "is steralized" : "is not steralized"
+    @hypoallergenic_string = @dog.is_hypoallergenic == true ? "is hypoallergenic" : "is not hypoallergenic"
+
     @shelter = @dog.user
 
     @marker = {
