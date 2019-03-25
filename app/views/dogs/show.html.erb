@@ -55,7 +55,7 @@
             Address: <%= @dog.user.address %> <br>
             Work time: <%= @dog.user.hours_of_operation %></p>
           </div>
-          <a href="mailto: <%= @shelter.email %>" class="btn-ghost">Contact the shelter</a>
+           <%= link_to "Contact the shelter", new_message_path(from_user_id: current_user.id, to_user_id: @dog.user_id) %>
 
         <% else %>
           <div class="show-page-about">
@@ -114,10 +114,7 @@
   </div>
 </div>
 
-<% if current_user.role == "user" %>
-  <%= link_to "Send a Message", new_message_path(from_user_id: current_user.id, to_user_id: @dog.user_id) %>
-<% end %>
-               
+
 <%= social_share_button_tag("Check out #{@dog.name} on FindADog!", :url => "http://www.findadog.site/dogs/#{@dog.id}", :popup => "true", desc: "Check out #{@dog.name} on FindADog!", :image => @dog.photo) %>
 
 
