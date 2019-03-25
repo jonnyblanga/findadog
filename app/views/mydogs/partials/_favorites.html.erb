@@ -1,6 +1,7 @@
 <div class="card-container">
   <div class="card-row">
     <% favorites.each do |favorite| %>
+    <%= link_to dog_path(favorite.dog) do %>
     <div class="card-trip col-xs-3">
       <% if favorite.dog.photo.present? %>
       <%= cl_image_tag(favorite.dog.photo, class: "image") %>
@@ -21,6 +22,7 @@
       </div>
       <% end %>
     </div>
+    <% end %>
     <% end %>
   </div>
 </div>
