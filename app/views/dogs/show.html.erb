@@ -21,8 +21,9 @@
 
 
 <% if current_user.role == "user" %>
-  <%#= link_to "Message the shelter", new_message_path(dog_id: @dog.id), class: "btn-ghost" %>
-  <a href="mailto: <%= @shelter.email %>" class="btn-ghost">Contact the shelter</a>
+
+
+  <%= link_to "Send a Message", new_message_path(from_user_id: current_user.id, to_user_id: @dog.user_id) %>
 
 <% else %>
 

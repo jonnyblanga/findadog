@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     resources :mydogs, only: [:create, :destroy]
   end
 
+  resources :messages, only: [:index, :new, :create, :destroy]
   resources :mydogs, only: [:index]
-
 end
