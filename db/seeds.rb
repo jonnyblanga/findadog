@@ -10,10 +10,11 @@ puts 'Cleaning database...'
 Favorite.destroy_all
 Dog.destroy_all
 User.destroy_all
+Message.destroy_all
 
 puts 'Creating fake admin & shelter...'
 
-User.create(
+user_1 = User.create(
   name: "admin",
   username: "admin",
   email: "silviasartor@ymail.com",
@@ -22,7 +23,17 @@ User.create(
   role: "user"
 )
 
-User.create(
+user_2 = User.create(
+  name: "Andrea",
+  username: "Andrea1",
+  email: "andrea@gmail.com",
+  password: "123456",
+  phone: "0534-32534564",
+  role: "user"
+)
+
+
+shelter_1 = User.create(
   name: "shelter",
   username: "shelter",
   email: "jonathanblanga@gmail.com",
@@ -45,7 +56,7 @@ User.create(
   user.save
 end
 
-User.create(
+shelter_2 = User.create(
   name: "Homeless Dog",
   username: "Homeless Dog",
   email: "ivan.radeljevic12345@gmail.com",
@@ -56,7 +67,7 @@ User.create(
   address: " Via Caradosso, 18, 20123 Milano MI"
 )
 
-User.create(
+shelter_3 = User.create(
   name: "Help pets!",
   username: "Help pets!",
   email: "audrey@gmail.com",
@@ -274,4 +285,35 @@ i += 2
 # Favorite.create(user_id: User.all.first.id, dog_id: 25)
 # Favorite.create(user_id: User.all.first.id, dog_id: 30)
 end
+
+puts 'Creating messages...'
+Message.create(
+  from_user_id: user_1.id,
+  to_user_id: shelter_1.id,
+  content: "I'm interested in adopting Luna. Could I pass by on Monday morning around 10:00?",
+)
+
+Message.create(
+  from_user_id: user_1.id,
+  to_user_id: shelter_1.id,
+  content: "Are you open also on Christmas day?",
+)
+
+Message.create(
+  from_user_id: user_1.id,
+  to_user_id: shelter_2.id,
+  content: "Are you open also the 1st of January?",
+)
+
+Message.create(
+  from_user_id: user_2.id,
+  to_user_id: shelter_2.id,
+  content: "Hello. I'm very interested in adopting Lexy. I wanted to ask you if she's the correct dog for a family with 2 little kids?",
+)
+
+Message.create(
+  from_user_id: user_2.id,
+  to_user_id: shelter_3.id,
+  content: "I'm interested in adopting Lucy. Could I pass by on Monday morning around 10:00?",
+)
 puts 'end...for the love of god'

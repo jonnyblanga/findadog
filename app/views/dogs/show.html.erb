@@ -63,7 +63,7 @@
             Address: <%= @dog.user.address %> <br>
             Work time: <%= @dog.user.hours_of_operation %></p>
           </div>
-           <%= link_to "Contact the shelter", new_message_path(from_user_id: current_user.id, to_user_id: @dog.user_id) %>
+           <%= link_to "Contact the shelter", new_message_path(from_user_id: current_user.id, to_user_id: @dog.user_id, dog_id: @dog.id) %>
 
         <% else %>
           <div class="show-page-about">
