@@ -1,27 +1,29 @@
 
-<div class="profile-center">
-  <div class="profile-info">
-    <div class="profile-info-header">
-      <p>INFORMATION ABOUT YOU</p>
-    </div>
-    <div class="profile-info-body">
-      <h2><%= @user.username %></h2>
-      <h3> password </h3>
-      <h3><%= @user.role %></h3>
+<div class="profile-container">
+  <div>
+    <div>
+      <h3 style="text-decoration: underline;">INFORMATION ABOUT & YOUR SHELTER</h3>
     </div>
   </div>
   <div class="profile-info">
     <div class="profile-info-header">
-      <p>INFORMATION ABOUT YOUR SHELTER </p>
-      <button class="btn"><%= link_to "Edit",  edit_user_registration_path,  class: "btn btn-ghost", method: :GET %>
+      <p>Name:</p>
+      <p>Username:</p>
+      <p>Email:</p>
+      <p>Phone:</p>
+      <p>Address:</p>
+      <p>hours_of_operation:</p>
     </div>
     <div class="profile-info-body">
       <h2><%= @user.name %></h2>
-      <p><%= @user.email %></p>
+      <h3><%= @user.username %></h3>
+      <h3><%= @user.email %></h3>
       <p><%= @user.phone %></p>
       <p><%= @user.address %></p>
       <p><%= @user.hours_of_operation %></p>
     </div>
   </div>
+  <div>
+    <%= link_to "Edit your info",  edit_user_registration_path,  class: "btn btn-ghost", method: :GET %>
+  </div>
 </div>
-

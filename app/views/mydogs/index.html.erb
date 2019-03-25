@@ -1,6 +1,8 @@
+<%= render partial: "shared/partials/tab" %>
 
 <% if @user.role == "user" %>
   <%= render partial: "mydogs/partials/favorites", locals: {favorites: @favorites} %>
 <% else %>
   <%= render partial: "mydogs/partials/shelter_dogs", locals: {dogs: @dogs} %>
 <% end %>
+

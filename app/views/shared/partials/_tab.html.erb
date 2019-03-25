@@ -1,0 +1,10 @@
+
+ <div class="topnav">
+  <%= link_to "My Profile", me_path%>
+  <% if current_user.role == "user" %>
+    <%= link_to "My Messages", mydogs_path %>
+    <%= link_to "My Favorite Dogs", mydogs_path %>
+  <% else %>
+    <%= link_to "My Dogs", mydogs_path %>
+  <% end %>
+</div>

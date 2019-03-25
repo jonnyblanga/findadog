@@ -1,2 +1,3 @@
 
-  <%= render partial: "dogs/partials/#{@user.role}_profile", locals: {user: @user} %>
+<%= render partial: "shared/partials/tab" %>
+<%= render partial: "dogs/partials/#{@user.role}_profile", locals: {user: @user} %>
