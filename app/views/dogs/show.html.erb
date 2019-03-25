@@ -14,7 +14,15 @@
 <div class="container show-container">
   <div class="row">
     <div class="col-md-8 container-for-the-show-page">
-      <%= cl_image_tag(@dog.photo, class: "image show-page-photo") %>
+      <div class="share-dog">
+
+        <div class="dogs-show-photo">
+          <%= cl_image_tag(@dog.photo, class: "image show-page-photo") %>
+        </div>
+        <span class="social-share-button">
+          <%= social_share_button_tag("Check out #{@dog.name} on FindADog! http://www.findadog.site/dogs/#{@dog.id}", :url => "http://www.findadog.site/dogs/#{@dog.id}", :popup => "true", desc: "Check out #{@dog.name} on FindADog! http://www.findadog.site/dogs/#{@dog.id}", :image => @dog.photo) %>
+        </span>
+      </div>
     </div>
     <div class="container col-md-4 show-container">
       <div class="container show-container">
@@ -55,7 +63,7 @@
             Address: <%= @dog.user.address %> <br>
             Work time: <%= @dog.user.hours_of_operation %></p>
           </div>
-          <a href="mailto: <%= @shelter.email %>" class="btn-ghost">Contact the shelter</a>
+           <%= link_to "Contact the shelter", new_message_path(from_user_id: current_user.id, to_user_id: @dog.user_id, dog_id: @dog.id) %>
 
         <% else %>
           <div class="show-page-about">
@@ -114,8 +122,6 @@
   </div>
 </div>
 
-
-<%= social_share_button_tag("Check out #{@dog.name} on FindADog!", :url => "http://www.findadog.site/dogs/#{@dog.id}", :popup => "true", desc: "Check out #{@dog.name} on FindADog!", :image => @dog.photo) %>
 
 
 
