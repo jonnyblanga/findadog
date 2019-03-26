@@ -6,8 +6,8 @@
 
         <div class="dogs-show-photo">
           <h1><%= @dog.name.upcase %></h1>
-          <div class= "image show-page-photo"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url('<%= cl_image_path @dog.photo, crop: :fill %>')">
+          <div class= "image show-page-photo"  style="background-repeat: no-repeat;background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+         url('<%= cl_image_path @dog.photo %>');background-size: cover;background-position: center center;">
           <div class="show-heart">
             <% if (current_user.role == "user") %>
               <% if (Favorite.where(dog: @dog, user: current_user).present?) %>
@@ -51,7 +51,7 @@
     </div>
     <div class="container col-md-4 show-container">
       <div class="container show-container">
-        <h4><b><%= @dog.name %>'s</b> Shelter:</h5>
+        <h4><b><%= @dog.name %>'s</b> Shelter:</h4>
         <div
           id="map"
           style="width: 100%;
@@ -86,6 +86,11 @@
      <div class="col-md-12">
       <h7>Gender:
         <b><%= @dog.gender %></b>
+      </h7>
+    </div>
+    <div class="col-md-12">
+      <h7>Size:
+        <b><%= @dog.size %></b>
       </h7>
     </div>
      <div class="col-md-12">
