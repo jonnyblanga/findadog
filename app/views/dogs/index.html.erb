@@ -1,72 +1,102 @@
 <%= render partial: "shared/partials/search" %>
-<%= form_tag dogs_path, method: :get do %>
-  <div class="form-group select optional dog_gender">
-    <label class="form-control-label select optional" for="dog_gender">
-      Gender
-    </label>
-    <select class="form-control select optional" name="gender_query" id="dog_gender">
-      <option value=""></option>
-      <% Dog::GENDERS.each do |gender| %>
-        <option value="<%= gender %>" <%= params[:gender_query] == gender ? "selected" : nil%>><%= gender %></option>
-      <% end %>
-    </select>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-sm-offset-12">
+      <div class="form-post">
+        <%= form_tag dogs_path, method: :get do %>
+            <div class="row">
+              <div class="col-xs-6 col-md-2">
+          <div class="form-group select optional dog_gender">
+              <label class="form-control-label select optional" for="dog_gender">
+                Gender
+              </label>
+              <select class="form-control select optional" name="gender_query" id="dog_gender">
+                <option value=""></option>
+                <% Dog::GENDERS.each do |gender| %>
+                  <option value="<%= gender %>" <%= params[:gender_query] == gender ? "selected" : nil%>><%= gender %></option>
+                <% end %>
+              </select>
+              </div>
+            </div>
+            <div class="col-xs-6 col-md-2">
+            <div class="form-group select optional dog_gender">
+              <label class="form-control-label select optional" for="dog_size">
+                Size
+              </label>
+              <select class="form-control select optional" name="size_query" id="dog_size">
+                <option value=""></option>
+                <% Dog::SIZES.each do |size| %>
+                  <option value="<%= size %>" <%= params[:size_query] == size ? "selected" : nil%>><%= size %></option>
+                <% end %>
+              </select>
+            </div>
+            </div>
+            <div class="col-xs-6 col-md-4">
+            <div class="form-group select optional dog_gender">
+              <label class="form-control-label select optional" for="dog_breed">
+                Breed
+              </label>
+              <select class="form-control select optional" name="breed_query" id="dog_breed">
+                <option value=""></option>
+                <% Dog::BREEDS.each do |breed| %>
+                  <option value="<%= breed %>" <%= params[:breed_query] == breed ? "selected" : nil%>><%= breed %></option>
+                <% end %>
+              </select>
+            </div>
+            </div>
+            <div class="col-xs-6 col-md-2">
+            <div class="form-group select optional dog_gender">
+              <label class="form-control-label select optional" for="dog_hypoallergenic">
+                Is hypoallergenic?
+              </label>
+              <select class="form-control select optional" name="hypoallergenic_query" id="dog_hypoallergenic">
+                <option value=""></option>
+                <% Dog::YES_AND_NO.each do |answer| %>
+                  <option value="<%= answer %>" <%= params[:hypoallergenic_query] == answer ? "selected" : nil%>><%= answer %></option>
+                <% end %>
+              </select>
+            </div>
+            </div>
+            <div class="col-xs-6 col-md-2">
+             <div class="form-group select optional dog_gender">
+              <label class="form-control-label select optional" for="dog_sterilized">
+                Is sterilized?
+              </label>
+              <select class="form-control select optional" name="sterilized_query" id="dog_sterilized">
+                <option value=""></option>
+                <% Dog::YES_AND_NO.each do |hey| %>
+                  <option value="<%= hey %>" <%= params[:sterilized_query] == hey ? "selected" : nil%>><%= hey %></option>
+                <% end %>
+              </select>
+                </div>
+               </div>
+              </div>
+              <div class="form-post">
+              <div class="row">
+                <div class="container">
+                <div class="form-grouppp">
 
-  <div class="form-group select optional dog_gender">
-    <label class="form-control-label select optional" for="dog_size">
-      Size
-    </label>
-    <select class="form-control select optional" name="size_query" id="dog_size">
-      <option value=""></option>
-      <% Dog::SIZES.each do |size| %>
-        <option value="<%= size %>" <%= params[:size_query] == size ? "selected" : nil%>><%= size %></option>
-      <% end %>
-    </select>
-  </div>
+                    <% Dog::COLORS.each do |color| %>
+                      <div class="color-choicesss <%= ((params[:colors] || []).include?(color)) ? "active" : nil %>">
 
-  <div class="form-group select optional dog_gender">
-    <label class="form-control-label select optional" for="dog_breed">
-      Breed
-    </label>
-    <select class="form-control select optional" name="breed_query" id="dog_breed">
-      <option value=""></option>
-      <% Dog::BREEDS.each do |breed| %>
-        <option value="<%= breed %>" <%= params[:breed_query] == breed ? "selected" : nil%>><%= breed %></option>
-      <% end %>
-    </select>
-  </div>
 
-  <% Dog::COLORS.each do |color| %>
-    <input type="checkbox" name="colors[]" id="<%= color %>" <%= (params[:colors] || []).include?(color) ? 'checked' : nil %> value="<%= color %>">
-    <label for="<%= color %>"><%= color %></label>
-  <% end %>
+                      <input type="checkbox" class="hidden forJavaScript" name="colors[]" id="<%= color %>" <%= (params[:colors] || []).include?(color) ? 'checked' : nil %> value="<%= color %>">
+                      <label for="<%= color %>"><%= color %><i class="fa fa-check"></i></label>
 
-  <div class="form-group select optional dog_gender">
-    <label class="form-control-label select optional" for="dog_hypoallergenic">
-      Is hypoallergenic?
-    </label>
-    <select class="form-control select optional" name="hypoallergenic_query" id="dog_hypoallergenic">
-      <option value=""></option>
-      <% Dog::YES_AND_NO.each do |answer| %>
-        <option value="<%= answer %>" <%= params[:hypoallergenic_query] == answer ? "selected" : nil%>><%= answer %></option>
-      <% end %>
-    </select>
-  </div>
 
-   <div class="form-group select optional dog_gender">
-    <label class="form-control-label select optional" for="dog_sterilized">
-      Is sterilized?
-    </label>
-    <select class="form-control select optional" name="sterilized_query" id="dog_sterilized">
-      <option value=""></option>
-      <% Dog::YES_AND_NO.each do |hey| %>
-        <option value="<%= hey %>" <%= params[:sterilized_query] == hey ? "selected" : nil%>><%= hey %></option>
-      <% end %>
-    </select>
-  </div>
+                    </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%= submit_tag("Filter") %>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-  <%= submit_tag("Filter") %>
-<% end %>
 
 <h1>
   <%= "FindADog in #{@search}:" %>
@@ -107,5 +137,20 @@
         <% end %>
       </div>
     <% end %>
+
   </div>
 </div>
+  <script>
+          document.querySelectorAll(".color-choicesss").forEach((checkbox) => {
+            const span = document.querySelectorAll(".active");
+            checkbox.addEventListener("click", (event) => {
+              event.currentTarget.classList.toggle("active");
+            // document.querySelectorAll(".forJavaScript").checked = true;
+              // if document.querySelectorAll(".color-choicesss").contains(span) {
+              // }; else {
+              //   document.querySelectorAll(".forJavaScript").checked = true
+              // };
+            });
+          });
+        </script>
+      
