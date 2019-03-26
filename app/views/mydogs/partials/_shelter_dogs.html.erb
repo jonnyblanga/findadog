@@ -1,37 +1,4 @@
-<!--   <%= link_to "Add a Dog", new_dog_path, class: "btn-ghost" %>
-<div class="card-container">
-  <div class="card-row">
-    <div class="card-trip ">
-  <% dogs.each do |dog| %>
-    <%= link_to dog_path(dog) do %>
-      <% if dog.photo.present? %>
-      <%= cl_image_tag(dog.photo, class: "image") %>
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= dog.name %>,  <% if dog.gender == "female" %>
-            <i class="fas fa-venus female"></i>
-            <% else %>
-            <i class="fas fa-mars male"></i>
-            <% end %>
-          </h2>
-
-          <% now = Date.today %>
-          <% age = now.year - dog.date_of_birth.year %>
-
-          <h3><%= (age > (1 || 0)) ? "#{age} years old" : "#{age} year old" %></h3>
-        </div>
-        <div>
-          <%= link_to "Edit", edit_dog_path(dog.id), class: "btn-ghost" %>
-          <%= link_to "Delete", dog_path(dog), class: "btn-ghost", method: :delete%>
-        </div>
-      </div>
-      <% end %>
-    <% end %>
-    </div>
-  <% end %>
-  </div>
-</div>
- -->
+ <%= link_to "Add a Dog", new_dog_path, class: "btn-ghost" %>
 
  <div class="card-container">
   <div class="card-row">

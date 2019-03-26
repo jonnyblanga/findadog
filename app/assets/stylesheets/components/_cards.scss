@@ -4,19 +4,18 @@
   flex-wrap: wrap;
 }
 .card-trip {
-  align-items: auto;
-  height: 200px;
-  width: 300px;
+  height: 250px;
+  width: 360px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 5px 0;
+  margin: 12px 8px;
   padding: 0;
   border-radius: 2px;
 }
 
 .card-trip img {
-  height: 70%;
+  height: 75%;
   width: 100%;
   object-fit: cover;
 }
