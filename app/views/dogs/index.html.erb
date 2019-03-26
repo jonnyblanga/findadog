@@ -83,6 +83,7 @@
                       <input type="checkbox" class="hidden forJavaScript" name="colors[]" id="<%= color %>" <%= (params[:colors] || []).include?(color) ? 'checked' : nil %> value="<%= color %>">
                       <label for="<%= color %>"><%= color %><i class="fa fa-check"></i></label>
 
+
                     </div>
                       <% end %>
                     </div>
@@ -95,42 +96,51 @@
         </div>
       </div>
     </div>
+
+
+<h1>
+  <%= "FindADog in #{@search}:" %>
+</h1>
+<div class="card-container">
+  <div class="card-row">
+    <% @dogs.each do |dog| %>
+
+      <div class="card-trip">
+      <%= link_to dog_path(dog) do %>
+        <% if dog.photo.present? %>
+        <%= cl_image_tag(dog.photo, class: "image") %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= dog.name %>,  <% if dog.gender == "female" %>
+            <i class="fas fa-venus female"></i>
+            <% else %>
+            <i class="fas fa-mars male"></i>
+            <% end %>
+            </h2>
+            <% now = Date.today %>
+            <% age = now.year - dog.date_of_birth.year %>
+            <h3><%= (age > (1 || 0)) ? "#{age} years old" : "#{age} year old" %> </h3>
+          </div>
+          <div>
+            <% if (user_signed_in?) && (Favorite.where(dog: dog, user: current_user).present?) %>
+              <%= link_to dog_mydog_path(dog.id, Favorite.where(dog: dog, user: current_user).first.id), method: :delete do %>
+              <i class="fas fa-heart" id="active"></i>
+              <% end %>
+            <% else %>
+              <%= link_to dog_mydogs_path(dog.id), method: :post do %>
+              <i class="fas fa-heart"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
   </div>
 </div>
-      <h1>
-        <%= "FindADog in #{@search}:" %>
-      </h1>
-      <div class="card-container">
-        <div class="card-row">
-          <% @dogs.each do |dog| %>
-          <%= link_to dog_path(dog) do %>
-            <div class="card-trip col-xs-3">
-              <% if dog.photo.present? %>
-              <%= cl_image_tag(dog.photo, class: "image") %>
-              <div class="card-trip-infos">
-                <div>
-                  <h2><%= link_to dog.name, dog_path(dog) %>, <%= dog.gender %> </h2>
-                  <% now = Date.today %>
-                  <% age = now.year - dog.date_of_birth.year %>
-                  <h3><%= (age > (1 || 0)) ? "#{age} years old" : "#{age} year old" %> </h3>
-                </div>
-                <div>
-                  <% if (user_signed_in?) && (Favorite.where(dog: dog, user: current_user).present?) %>
-                    <%= link_to dog_mydog_path(dog.id, Favorite.where(dog: dog, user: current_user).first.id), method: :delete do %>
-                    <i class="fas fa-heart" id="active"></i>
-                    <% end %>
-                  <% else %>
-                    <%= link_to dog_mydogs_path(dog.id), method: :post do %>
-                    <i class="fas fa-heart"></i>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-              <% end %>
-            </div>
-          <% end %>
-        <% end %>
-        <script>
+  <script>
           document.querySelectorAll(".color-choicesss").forEach((checkbox) => {
             const span = document.querySelectorAll(".active");
             checkbox.addEventListener("click", (event) => {
@@ -143,3 +153,4 @@
             });
           });
         </script>
+      

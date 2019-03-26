@@ -1,3 +1,8 @@
+.card-container{
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
 .card-trip {
   align-items: auto;
   height: 200px;
@@ -5,7 +10,7 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 5px;
+  margin: 5px 0;
   padding: 0;
   border-radius: 2px;
 }
@@ -28,7 +33,6 @@
   margin: 0;
 }
 
-
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
@@ -36,3 +40,10 @@
   align-items: flex-end;
   position: relative;
 }
+
+.female{
+  color: #dea5ed;
+}
+ .male{
+  color: #a5b6fa;
+ }

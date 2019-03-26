@@ -32,8 +32,8 @@
 <div class="card-container">
   <div class="card-row">
     <% @dogs_rand.each do |dog| %>
-    <%= link_to dog_path(dog) do %>
     <div class="card-trip col-xs-3">
+    <%= link_to dog_path(dog) do %>
       <% if dog.photo.present? %>
       <%= cl_image_tag(dog.photo, class: "image") %>
       <div class="card-trip-infos">
@@ -58,8 +58,8 @@
         </div>
       </div>
       <% end %>
-    </div>
     <% end %>
+    </div>
     <% end %>
   </div>
 </div>

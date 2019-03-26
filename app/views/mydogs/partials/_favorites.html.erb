@@ -1,14 +1,19 @@
 <div class="card-container">
   <div class="card-row">
     <% favorites.each do |favorite| %>
-    <%= link_to dog_path(favorite.dog) do %>
     <div class="card-trip col-xs-3">
+    <%= link_to dog_path(favorite.dog) do %>
       <% if favorite.dog.photo.present? %>
       <%= cl_image_tag(favorite.dog.photo, class: "image") %>
 
       <div class="card-trip-infos">
         <div>
-          <h2><%= favorite.dog.name %>, <%= favorite.dog.gender %> </h2>
+          <h2><%= favorite.dog.name %>,  <% if favorite.dog.gender == "female" %>
+            <i class="fas fa-venus female"></i>
+            <% else %>
+            <i class="fas fa-mars male"></i>
+            <% end %>
+          </h2>
           <% now = Date.today %>
           <% age = now.year - favorite.dog.date_of_birth.year %>
 
@@ -21,8 +26,8 @@
         </div>
       </div>
       <% end %>
-    </div>
     <% end %>
+    </div>
     <% end %>
   </div>
 </div>
