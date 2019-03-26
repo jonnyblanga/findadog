@@ -1,3 +1,4 @@
+<%= render partial: "shared/partials/tab" %>
 
 <div class="form-page">
   <h1>New dog</h1>
@@ -10,7 +11,6 @@
     <%= f.input :size, collection: Dog::SIZES %>
     <%= f.input :breed, collection: Dog::BREEDS %>
     <%= f.input :color, :label => "Color", :collection => Dog::COLORS, :as => :check_boxes %>
-
     <%= f.input :is_hypoallergenic, as: :boolean, checked_value: true, unchecked_value: false %>
     <%= f.input :is_sterilized, as: :boolean, checked_value: true, unchecked_value: false %>
     <%= f.input :photo %>
@@ -19,11 +19,9 @@
 
     <%#= f.input :pictures, as: :file, input_html: {name: "dog[pictures][]", multiple: true} %>
 
-<!-- , html: { multipart: true } -->
-
-    <%#= f.hidden_field :pictures %>
-
-    <%= f.button :submit, :id => 'btn-ghost' %>
+ <div class="div-btn-center">
+    <%= f.button :submit, :id => 'btn-green' %>
+  </div>
   <% end %>
 </div>
 

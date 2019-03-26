@@ -31,6 +31,7 @@
               <%= link_to "My Messages", messages_path, class: "dropdown-item" %>
             <% else %>
               <%= link_to "My Dogs", mydogs_path, class: "dropdown-item" %>
+              <%= link_to "Add a Dog", new_dog_path, class: "dropdown-item" %>
             <% end %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>

@@ -6,7 +6,7 @@ class Dog < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   mount_uploaders :pictures, PictureUploader
 
-  validates :name, :breed, :size, :gender, presence: true
+  validates :name, :breed, :size, :gender, :color, presence: true
   validates :size, inclusion: { in: %w(small medium large) }
   validates :gender, inclusion: { in: %w(male female) }
   validates :breed, inclusion: { in: ["Norrbottenspets", "Old English Sheepdog", "Parson Russell Terrier", "Pomeranian", "Rottweiler", "Russell Terrier", "Akita", "Beagle", "French Bulldog", "Bulldog", "Dalmatian", "German Sheperd", "Labrador", "Maltese", "Dachshund", "Doberman", "Chihuahua", "Mixed"]

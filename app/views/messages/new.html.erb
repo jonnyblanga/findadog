@@ -1,5 +1,25 @@
-<h1>New Message</h1>
 
-<%= render 'form', message: @message %>
+<div class="form-page">
+  <%= simple_form_for(@message) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-<%= link_to 'Back', dog_path(params[:dog_id]) %>
+  <div class="form-inputs">
+    <%= f.input :from_user_id, as: :hidden, input_html: {value: params[:from_user_id]} %>
+    <div class="form-mex-header">
+      <label><strong> To: </strong> <%= User.find(params[:to_user_id]).name %></label>
+      <label><strong> For: </strong> <%= Dog.find(params[:dog_id]).name %></label>
+    </div>
+      <%= f.input :to_user_id, as: :hidden, input_html: {value: params[:to_user_id]} %>
+      <%= f.input :content %>
+  </div>
+  <div class="form-page-btn">
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+    <div class="btn-ghost">
+      <%= link_to 'Back to the dog', dog_path(params[:dog_id]) %>
+    </div>
+  </div>
+  <% end %>
+</div>

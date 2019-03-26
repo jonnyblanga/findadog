@@ -11,6 +11,7 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = Message.new
+
   end
 
   # POST /messages
