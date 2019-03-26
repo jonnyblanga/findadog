@@ -3,6 +3,12 @@
   align-content: flex-start;
   flex-wrap: wrap;
 }
+.card-row {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
 .card-trip {
   height: 250px;
   width: 360px;
