@@ -4,27 +4,26 @@
   <div class="row justify-content-center">
     <div class="col-12 col-sm-8 col-md-6">
       <div class="card-message row">
+
         <div class="col-2">
           <div class="mex-top">
             <p><strong>Date:</strong></p>
             <p><strong>To:</strong></p>
-            <p style="font-size: 12px">email:</p>
+            <p><strong>Email:</strong></p>
+            <p><strong>Content:</strong></p>
           </div>
-          <p><strong>Content:</strong></p>
         </div>
 
         <div class="col-10">
           <div class="mex-top">
             <div class="mex-delete">
-            <p><%= message.created_at %></p>
-             <%= link_to message,  method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="fas fa-trash-alt"></i>
-          <% end  %>
-          </div>
+            <p><%= message.created_at.time.strftime('%A, %d %b %Y %l:%M %p') %></p>
+              <%= link_to message,  method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fas fa-trash-alt"></i>
+              <% end  %>
+            </div>
             <p><%= message.shelter.name %></p>
-            <p style="font-size: 12px"><%= message.shelter.email %></p>
-          </div>
-          <div class="mex-content">
+            <p><%= message.shelter.email %></p>
             <p><%= message.content %></p>
           </div>
         </div>
