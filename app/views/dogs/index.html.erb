@@ -1,5 +1,9 @@
 <%= render partial: "shared/partials/search" %>
-<div class="container">
+<nav class="whatevs">
+  <div class="for-dropdown-h3">
+  <h3>filter here</h3>
+  </div>
+<div class="container for-dropdown">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-sm-offset-12">
       <div class="form-post">
@@ -78,7 +82,7 @@
 
                     <% Dog::COLORS.each do |color| %>
                       <div data-color="<%= color %>" class="color-choicesss <%= ((params[:colors] || []).include?(color)) ? "active" : nil %>">
-                        <label><%= color %> <i class="fa fa-check"></i> </label>
+                        <label><%= color %> <br><i class="fa fa-check"></i> </label>
                        <!--  when you use label  for="something" it zill toggle the input with id="something" so it was messing with the javacript aka. the javascript was toggling twice the checkbox. -->
                       </div>
 
@@ -88,13 +92,15 @@
                   </div>
                 </div>
               </div>
+              <div class="container index-button-container">
+            <%= submit_tag "Filter", :class => "index-button" %>
+              </div>
             </div>
-            <%= submit_tag("Filter") %>
           <% end %>
         </div>
       </div>
     </div>
-
+</nav>
 
 <h1>
   <%= "FindADog in #{@search}:" %>
