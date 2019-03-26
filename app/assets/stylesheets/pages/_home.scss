@@ -1,11 +1,11 @@
 // Specific CSS for your home-page
 
 .landing-banner {
-  height: 110vh;
+  height: 83vh;
 }
 
 .wrapping-banner-content {
-  padding-top: 20%;
+  padding-top: 30%;
   position: absolute;
   left: 0;
   right: 0;
@@ -36,12 +36,23 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+  color: white;
+  width: 1000px;
+    h1 {
+  font-family: Rockwell Extra Bold,Rockwell Bold,monospace;
+  letter-spacing: 25px;
+  }
+  p {
+  font-size: 40px;
+  font-family: sans-serif;
+  }
 }
+
 
 .image-slide1,.image-slide2,.image-slide3 {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 80%;
   background-color: #000000;
   background:rgba(0, 0, 0, 4);
 }
@@ -93,3 +104,10 @@
   width: 290px;
 }
 
+.card-container {
+  padding-bottom: 80px;
+}
+
+.dogs-landing-header {
+  padding: 30px;
+}
