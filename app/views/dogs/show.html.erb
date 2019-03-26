@@ -1,23 +1,26 @@
-<div>
-  <% if (current_user.role == "user") %>
-    <% if (Favorite.where(dog: @dog, user: current_user).present?) %>
-      <%= link_to dog_mydog_path(@dog.id, Favorite.where(dog: @dog, user: current_user).first.id), method: :delete do %>
-        <i class="fas fa-heart" id="active"></i>
-      <% end %>
-    <% else %>
-      <%= link_to dog_mydogs_path(@dog.id), method: :post do %>
-        <i class="fas fa-heart"></i>
-      <% end %>
-    <% end %>
-  <% end %>
-</div>
+
 <div class="container show-container">
   <div class="row">
     <div class="col-md-8 container-for-the-show-page">
       <div class="share-dog">
 
         <div class="dogs-show-photo">
-          <%= cl_image_tag(@dog.photo, class: "image show-page-photo") %>
+          <div class= "image show-page-photo"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path @dog.photo, crop: :fill %>')">
+          <div class="show-heart">
+            <% if (current_user.role == "user") %>
+              <% if (Favorite.where(dog: @dog, user: current_user).present?) %>
+                <%= link_to dog_mydog_path(@dog.id, Favorite.where(dog: @dog, user: current_user).first.id), method: :delete do %>
+                  <i class="fas fa-heart show-heart" id="active"></i>
+                <% end %>
+              <% else %>
+                <%= link_to dog_mydogs_path(@dog.id), method: :post do %>
+                  <i class="fas fa-heart show-heart"></i>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+          </div>
         </div>
         <span class="social-share-button">
           <%= social_share_button_tag("Check out #{@dog.name} on FindADog! http://www.findadog.site/dogs/#{@dog.id}", :url => "http://www.findadog.site/dogs/#{@dog.id}", :popup => "true", desc: "Check out #{@dog.name} on FindADog! http://www.findadog.site/dogs/#{@dog.id}", :image => @dog.photo) %>
