@@ -1,22 +1,30 @@
 .form-page {
-  color: #ada495;
+  color: $my-black;
   width: 50vw;
   padding: 50px;
   background: white;
-  margin: 50px auto;
+  margin: 50px auto 100px auto;
   border-radius: 3px;
   -webkit-box-shadow: 0px 0px 9px 5px rgba(253, 193, 18, 0.2);
   -moz-box-shadow: 0px 0px 9px 5px rgba(253, 193, 18, 0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
-  h2 {
-    color: #ada495;
-  }
 }
 
 .form-page a {
   color: #ada495;
   &:hover {
-    color: black;
+    color: $my-black;
   }
+}
+
+.form-page-btn{
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-mex-header{
+  display: flex;
+  justify-content:flex-start;
+  label {padding-right: 25px;}
 }

@@ -46,6 +46,22 @@
   position: relative;
 }
 
+.card-trip-btns{
+  width: 30%;
+  display:flex;
+  justify-content: flex-end;
+}
+
+.card-trip-btn {
+  color: $my-black;
+  padding: 5px 10px;
+}
+.card-trip-btn:hover{
+    color: blue;
+    text-decoration: none;
+  }
+
+
 .female{
   color: #dea5ed;
 }
