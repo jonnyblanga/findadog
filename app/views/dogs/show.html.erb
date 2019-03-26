@@ -5,6 +5,7 @@
       <div class="share-dog">
 
         <div class="dogs-show-photo">
+          <h1><%= @dog.name.upcase %></h1>
           <div class= "image show-page-photo"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
          url('<%= cl_image_path @dog.photo, crop: :fill %>')">
           <div class="show-heart">
@@ -26,11 +27,8 @@
           <%= social_share_button_tag("Check out #{@dog.name} on FindADog! http://www.findadog.site/dogs/#{@dog.id}", :url => "http://www.findadog.site/dogs/#{@dog.id}", :popup => "true", desc: "Check out #{@dog.name} on FindADog! http://www.findadog.site/dogs/#{@dog.id}", :image => @dog.photo) %>
         </span>
       </div>
-    </div>
-    <div class="container col-md-4 show-container">
-      <div class="container show-container">
-        <div class="col-md-12">
-        <p><b><%= @dog.name %></b> is...</p>
+
+      <p><b><%= @dog.name %></b> is...</p>
         <ul>
           <p>a <b><%= @size_dog %></b> <b><%= @gender_dog %></b>
             who was born <b><%= Date.today.year - @dog.date_of_birth.year %></b> years ago,
@@ -48,8 +46,10 @@
           <%= @he_she %> <b><%= @hypoallergenic_string %></b> and <%= @he_she %> <b><%= @steralized_string %></b>.
           </p>
         </ul>
-        </div>
-      </div>
+
+
+    </div>
+    <div class="container col-md-4 show-container">
       <div class="container show-container">
         <h4><b><%= @dog.name %>'s</b> Shelter:</h5>
         <div
@@ -80,33 +80,29 @@
 
         <% end %>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-1">
-      <h5>Name: <br>
-       <b><%= @dog.name %></b></h5>
-    </div>
-     <div class="col-md-1">
-      <h5>Gender: <br>
+      <div class="col-md-12">
+       <h6>Information About:<b> <%= @dog.name %></h6></b>
+      </div>
+     <div class="col-md-12">
+      <h7>Gender:
         <b><%= @dog.gender %></b>
-      </h5>
+      </h7>
     </div>
-     <div class="col-md-1">
-      <h5>Age: <br>
+     <div class="col-md-12">
+      <h7>Age:
         <b><%= Date.today.year - @dog.date_of_birth.year %> </b>
-      </h5>
+      </h7>
     </div>
-     <div class="col-md-2">
-      <h5>Breed: <br>
+     <div class="col-md-12">
+      <h7>Breed:
         <b><%= @dog.breed %></b>
-      </h5>
+      </h7>
     </div>
-     <div class="col-md-2">
-      <h5>Color:
+     <div class="col-md-12">
+      <h7>Color:
         <b> <% @dog.color.each do |colors|%>
             <% if colors.class == String %>
-              <%= colors %> <br>
+              <%= colors %>
             <% else %>
               <% colors.each do |color| %>
                 <%= color %>
@@ -114,13 +110,14 @@
             <% end %>
           <% end %>
         </b>
-      </h5>
+      </h7>
     </div>
-     <div class="col-md-2">
-      <h5><%= @he_she %> <b><%= @steralized_string %></b></h5>
+     <div class="col-md-12">
+      <h7><%= @he_she.capitalize %> <b><%= @steralized_string %></b></h7>
     </div>
-     <div class="col-md-2">
-      <h5><%= @he_she %> <b><%= @hypoallergenic_string %></b></h5>
+     <div class="col-md-12">
+      <h7><%= @he_she.capitalize %> <b><%= @hypoallergenic_string %></b></h5>
+    </div>
     </div>
   </div>
 </div>
