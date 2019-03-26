@@ -34,7 +34,7 @@ user_2 = User.create(
 
 
 shelter_1 = User.create(
-  name: "Jonathan",
+  name: "Homless Dogs",
   username: "Jonny",
   email: "jonathanblanga@gmail.com",
   phone: "02 9934 6310",
