@@ -51,7 +51,7 @@
     </div>
     <div class="container col-md-4 show-container">
       <div class="container show-container">
-        <h4><b><%= @dog.name %>'s</b> Shelter:</h4>
+        <h4><b><%= @dog.name %>'s Shelter:</b></h4>
         <div
           id="map"
           style="width: 100%;
@@ -66,7 +66,7 @@
             Address: <%= @dog.user.address %> <br>
             Work time: <%= @dog.user.hours_of_operation %></p>
           </div>
-           <%= link_to "Contact the shelter", new_message_path(from_user_id: current_user.id, to_user_id: @dog.user_id, dog_id: @dog.id) %>
+           <%= link_to "Contact the shelter", new_message_path(from_user_id: current_user.id, to_user_id: @dog.user_id, dog_id: @dog.id), class: "btn-ghost" %>
 
         <% else %>
           <div class="show-page-about">
@@ -81,7 +81,7 @@
         <% end %>
       </div>
       <div class="col-md-12">
-       <h6>Information About:<b> <%= @dog.name %></h6></b>
+       <h4><b>Information about <%= @dog.name %>:</h4></b>
       </div>
      <div class="col-md-12">
       <h7>Gender:
