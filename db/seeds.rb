@@ -15,8 +15,8 @@ Message.destroy_all
 puts 'Creating fake admin & shelter...'
 
 user_1 = User.create(
-  name: "admin",
-  username: "admin",
+  name: "Silvia",
+  username: "SiSa",
   email: "silviasartor@ymail.com",
   password: "123456",
   phone: "334-9753029",
@@ -34,8 +34,8 @@ user_2 = User.create(
 
 
 shelter_1 = User.create(
-  name: "shelter",
-  username: "shelter",
+  name: "Jonathan",
+  username: "Jonny",
   email: "jonathanblanga@gmail.com",
   phone: "02 9934 6310",
   password: "123456",
