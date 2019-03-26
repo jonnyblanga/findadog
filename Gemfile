@@ -12,6 +12,8 @@ gem 'redis'
 gem 'money-rails'
 gem 'stripe'
 
+
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'
