@@ -11,7 +11,7 @@ gem 'redis'
 #stripe
 gem 'money-rails'
 gem 'stripe'
-
+gem 'active_link_to'
 
 
 gem 'autoprefixer-rails'

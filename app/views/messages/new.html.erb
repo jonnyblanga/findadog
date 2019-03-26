@@ -7,19 +7,18 @@
   <div class="form-inputs">
     <%= f.input :from_user_id, as: :hidden, input_html: {value: params[:from_user_id]} %>
     <div class="form-mex-header">
+      <div>
       <label><strong> To: </strong> <%= User.find(params[:to_user_id]).name %></label>
-      <label><strong> For: </strong> <%= Dog.find(params[:dog_id]).name %></label>
+      </div>
+      <div>
+        <i class="fas fa-dog"></i> <%= link_to Dog.find(params[:dog_id]).name.upcase, dog_path(params[:dog_id]) %>
+      </div>
     </div>
-      <%= f.input :to_user_id, as: :hidden, input_html: {value: params[:to_user_id]} %>
-      <%= f.input :content %>
+    <%= f.input :to_user_id, as: :hidden, input_html: {value: params[:to_user_id]} %>
+    <%= f.input :content %>
   </div>
-  <div class="form-page-btn">
-    <div class="form-actions">
-      <%= f.button :submit %>
-    </div>
-    <div class="btn-ghost">
-      <%= link_to 'Back to the dog', dog_path(params[:dog_id]) %>
-    </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
   <% end %>
 </div>
