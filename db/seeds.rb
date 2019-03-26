@@ -128,7 +128,7 @@ good_shelter = all_shelters.first
 
 puts 'Creating fake dogs...'
 
-dog = Dog.new(name: "Joey", gender: "male", date_of_birth: "2017-01-02", size: "small", breed: "Norrbottenspets", color: ["white", "beige"], is_hypoallergenic: "false", is_sterilized: "true", user_id: good_shelter.id)
+dog = Dog.new(name: "Joey", gender: "male", date_of_birth: "2017-01-02", size: "large", breed: "Norrbottenspets", color: ["white", "beige"], is_hypoallergenic: "false", is_sterilized: "true", user_id: good_shelter.id)
 dog.remote_photo_url = "https://www.101dogbreeds.com/wp-content/uploads/2016/12/Norrbottenspets-Pictures.jpg"
 dog.remote_pictures_urls = [
   "http://skadi.se/wp-content/uploads/2015/04/agnar11.jpg",
