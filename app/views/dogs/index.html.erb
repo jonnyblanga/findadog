@@ -77,14 +77,12 @@
                 <div class="form-grouppp">
 
                     <% Dog::COLORS.each do |color| %>
-                      <div class="color-choicesss <%= ((params[:colors] || []).include?(color)) ? "active" : nil %>">
+                      <div data-color="<%= color %>" class="color-choicesss <%= ((params[:colors] || []).include?(color)) ? "active" : nil %>">
+                        <label><%= color %> <i class="fa fa-check"></i> </label>
+                       <!--  when you use label  for="something" it zill toggle the input with id="something" so it was messing with the javacript aka. the javascript was toggling twice the checkbox. -->
+                      </div>
 
-
-                      <input type="checkbox" class="hidden forJavaScript" name="colors[]" id="<%= color %>" <%= (params[:colors] || []).include?(color) ? 'checked' : nil %> value="<%= color %>">
-                      <label for="<%= color %>"><%= color %><i class="fa fa-check"></i></label>
-
-
-                    </div>
+                      <input type="checkbox" class="hidden" name="colors[]" id="<%= color %>" <%= (params[:colors] || []).include?(color) ? 'checked' : nil %> value="<%= color %>">
                       <% end %>
                     </div>
                   </div>
@@ -142,15 +140,32 @@
 </div>
   <script>
           document.querySelectorAll(".color-choicesss").forEach((checkbox) => {
-            const span = document.querySelectorAll(".active");
             checkbox.addEventListener("click", (event) => {
+              let color = event.currentTarget.dataset.color;
+              let checkboxForColor = document.querySelectorAll("#" + color)[0];
+
+              console.log("before" );
               event.currentTarget.classList.toggle("active");
-            // document.querySelectorAll(".forJavaScript").checked = true;
-              // if document.querySelectorAll(".color-choicesss").contains(span) {
-              // }; else {
-              //   document.querySelectorAll(".forJavaScript").checked = true
-              // };
+              checkboxForColor.checked = !checkboxForColor.checked;
+
+              // if (checkboxForColor.checked) {
+              //   checkboxForColor.checked = false;
+
+              // } else {
+              //   checkboxForColor.checked = true;
+              // }
             });
           });
         </script>
-      
+
+
+
+
+
+
+
+
+
+
+
+
