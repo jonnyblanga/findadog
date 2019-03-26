@@ -29,10 +29,10 @@
   <h3>Some of the dogs looking for a new home</h3>
 </div>
 
-<div class="card-container">
+<div class="card-container col-md-12">
   <div class="card-row">
     <% @dogs_rand.each do |dog| %>
-    <div class="card-trip col-xs-3">
+    <div class="card-trip col-md-4">
     <%= link_to dog_path(dog) do %>
       <% if dog.photo.present? %>
       <%= cl_image_tag(dog.photo, class: "image") %>
