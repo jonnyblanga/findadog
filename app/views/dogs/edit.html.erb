@@ -1,22 +1,27 @@
 
 <div class="form-page">
-  <h1>Edit your dog</h1>
-
+  <div Class="form-edit-header">
+    <h1>Edit your dog</h1>
+    <p><%= link_to "Back", :back %></p>
+  </div>
   <%= simple_form_for @dog do |f| %>
-    <%= f.input :name %>
-    <%= f.input :gender, collection: Dog::GENDERS %>
-    <label>Birthday</label>
-     <%= date_select :dog ,:date_of_birth, :start_year => (DateTime.current.year - 90), :end_year => (DateTime.current.year)%>
-    <%= f.input :size, collection: Dog::SIZES %>
-    <%= f.input :breed, collection: Dog::BREEDS  %>
-    <%= f.input :color, :label => "Color", :collection => Dog::COLORS, :as => :check_boxes %>
-    <%= f.input :is_hypoallergenic, as: :boolean, checked_value: true, unchecked_value: false %>
-    <%= f.input :is_sterilized, as: :boolean, checked_value: true, unchecked_value: false %>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
-    <%= f.file_field :pictures, multiple: true %>
+  <%= f.input :name %>
+  <%= f.input :gender, collection: Dog::GENDERS %>
+  <label>Birthday</label>
+  <%= date_select :dog ,:date_of_birth, :start_year => (DateTime.current.year - 90), :end_year => (DateTime.current.year)%>
+  <%= f.input :size, collection: Dog::SIZES %>
+  <%= f.input :breed, collection: Dog::BREEDS  %>
+  <%= f.input :color, :label => "Color", :collection => Dog::COLORS, :as => :check_boxes %>
+  <%= f.input :is_hypoallergenic, as: :boolean, checked_value: true, unchecked_value: false %>
+  <%= f.input :is_sterilized, as: :boolean, checked_value: true, unchecked_value: false %>
+  <%= cl_image_tag(@dog.photo, class: "image form-edit-photo") %>
 
-    <%= f.button :submit, :id => 'btn-ghost' %>
+  <%= f.input :photo, label: "To change photo" %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%#= f.file_field :pictures, multiple: true %>
+  <div class="div-btn-center">
+    <%= f.button :submit, :class => 'btn-green' %>
+  </div>
   <% end %>
 </div>
 

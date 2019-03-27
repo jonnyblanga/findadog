@@ -28,3 +28,26 @@
   justify-content: space-between;
   i {padding-right: 5px;}
 }
+
+.form-edit-header{
+  display: flex;
+  justify-content: space-between;
+  a {
+    color: $my-black;
+    text-decoration: none;}
+  }
+  p{
+    margin: auto 0 auto 0px;
+    :hover{
+      font-weight: bold;}
+}
+
+.form-edit-photo{
+  margin: 8px 20%;
+  height: 50%;
+  width: 60%;
+}
+
+.form-check-input.is-valid ~ .form-check-label {
+  color: #7d7d7d;
+}
