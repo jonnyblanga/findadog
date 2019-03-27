@@ -7,7 +7,6 @@
   <%= simple_form_for @dog do |f| %>
   <%= f.input :name %>
   <%= f.input :gender, collection: Dog::GENDERS %>
-  <label>Birthday</label>
   <%= f.input :date_of_birth, as: :string, required: false, input_html: {class: "datepicker"} %>
   <%= f.input :size, collection: Dog::SIZES %>
   <%= f.input :breed, collection: Dog::BREEDS  %>
