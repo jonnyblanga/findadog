@@ -136,7 +136,7 @@ dog.remote_pictures_urls = [
 ]
 dog.save
 
-dog = Dog.new(name: "Jamie", gender: "female", date_of_birth: "2017-12-15", size: "small", breed: "Norrbottenspets", color: ["white", "beige"], is_hypoallergenic: "false", is_sterilized: "false", user_id: good_shelter.id)
+dog = Dog.new(name: "Jamie", gender: "female", date_of_birth: "2017-12-15", size: "large", breed: "Norrbottenspets", color: ["white", "beige"], is_hypoallergenic: "false", is_sterilized: "false", user_id: good_shelter.id)
 dog.remote_photo_url = "https://www.101dogbreeds.com/wp-content/uploads/2016/12/Norrbottenspets.jpg"
 dog.save
 
