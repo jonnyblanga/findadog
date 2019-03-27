@@ -1,3 +1,8 @@
+<% content_for :meta_title, "#{@dog.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @dog.breed %>
+<!-- this might be wrong, if so change @dog.photo.path to @dog.photo -->
+<% content_for :meta_image, cl_image_path(@dog.photo.path) %>
+
 
 <div class="container show-container">
   <div class="row">
