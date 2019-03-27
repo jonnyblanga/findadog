@@ -1,0 +1,5 @@
+meta_product_name: "Find A Dog"
+meta_title: "Find A Dog - Save a dog, find a friend!"
+meta_description: "Save a dog from the shelter and suprise your family with their new best friend!"
+meta_image: "doglogo.png" # should exist in `app/assets/images/`
+twitter_account: "@realDonaldTrump"   # required for Twitter Cards
