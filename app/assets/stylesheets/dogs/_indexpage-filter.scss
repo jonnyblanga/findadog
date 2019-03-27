@@ -1,10 +1,13 @@
 .form-post {
-  background: $my-green;
+  color: $my-black;
+  font-weight: bold;
+  background: white;
   margin-top: 0px;
-  padding: 20px;
-  border-radius: 5px;
+  padding: 10px;
+  border-radius: 2px;
   display: flex;
   justify-content: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
   h1 {
     text-align: center;
     font-weight: bold;
@@ -13,28 +16,32 @@
     margin-bottom: 50px;
     margin-top: 0px;
   }
-  .btn {
-    width: 100%;
-    padding: 10px;
-    font-weight: bold;
+  // .btn {
+  //   width: 100%;
+  //   padding: 10px;
+  //   font-weight: bold;
+  // }
+  .optional{
+    margin-bottom: 0px;
+
   }
 }
-
-
 
 .color-choicesss {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin: 20px 20px;
-}
-.color-choicesss {
-  background: white;
-  padding: 20px;
-  border-radius: 5px;
-  opacity: .4;
+  height: 30px;
+  width: 135px;
+  margin: 0px 10px;
+  background: rgba(60,60,60, 0.2);
+  padding: 3px;
+  border-radius: 3px;
   flex: 0 0 10%;
   text-align: center;
+  label {
+    letter-spacing: 2px;
+  }
   &:hover {
     opacity: 1;
     cursor: pointer;
@@ -49,14 +56,30 @@
 .form-grouppp {
   display: flex;
   justify-content: space-around;
+  height:30px;
 }
 
 .hidden {
   display: none;
 }
+
 .index-button-container {
   display: flex;
   justify-content: center;
+  .index-button{
+    background: $my-green;
+    border-radius: 3px;
+    padding: 4px;
+    color: $my-black;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 2px;
+    width:100%;
+    :hover{
+      opacity: 0.2;
+    }
+
+  }
 }
 .for-dropdown {
   position: relative;

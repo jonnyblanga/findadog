@@ -48,7 +48,7 @@
             <div class="col-xs-6 col-md-2">
             <div class="form-group select optional dog_gender">
               <label class="form-control-label select optional" for="dog_hypoallergenic">
-                Hypoallergenic
+                Hypoallergenic?
               </label>
               <select class="form-control select optional" name="hypoallergenic_query" id="dog_hypoallergenic">
                 <option value=""></option>
@@ -61,7 +61,7 @@
             <div class="col-xs-6 col-md-2">
              <div class="form-group select optional dog_gender">
               <label class="form-control-label select optional" for="dog_sterilized">
-                Sterilized
+                Sterilized?
               </label>
               <select class="form-control select optional" name="sterilized_query" id="dog_sterilized">
                 <option value=""></option>
@@ -74,12 +74,12 @@
               </div>
               <div class="form-post">
               <div class="row">
-                <div class="container">
+
                 <div class="form-grouppp">
 
                     <% Dog::COLORS.each do |color| %>
                       <div data-color="<%= color %>" class="color-choicesss <%= ((params[:colors] || []).include?(color)) ? "active" : nil %>">
-                        <label><%= color %> <br><i class="fa fa-check"></i> </label>
+                        <label><i class="fa fa-check"></i><%= color %> </label>
                        <!--  when you use label  for="something" it zill toggle the input with id="something" so it was messing with the javacript aka. the javascript was toggling twice the checkbox. -->
                       </div>
 
@@ -87,9 +87,9 @@
                       <% end %>
                     </div>
                   </div>
-                </div>
+
               </div>
-              <div class="container index-button-container">
+              <div class="index-button-container">
             <%= submit_tag "Filter", :class => "index-button" %>
               </div>
             </div>
