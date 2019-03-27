@@ -1,7 +1,7 @@
 .container-for-the-show-page {
-  position: relaitve;
   height: 600px;
-  // background-color: pink;
+  border-radius: 3px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .show-page-photo {
@@ -9,29 +9,55 @@
   max-height: 100%;
   min-width: 600px;
   max-width: 100%;
+
 }
 
-h1 {
-  color: #383737;
-}
-h4 {
-  color: #383737;
-  font-weight: lighter;
-  margin-top: 30px;
+h1, a {
+  color:$my-black;
 }
 
-p {
-  color: #383737;
+h6, p, h7, h4 {
+  color:$my-black;
   font-weight: lighter;
 }
 
-h7 {
-  color: #383737;
-  font-weight: lighter;
+
+.dog-show-photo-header{
+  display: flex;
+  justify-content: center;
 }
 
-h6 {
-  color: #383737;
-  font-weight: lighter;
+.show-page-description-container{
+  margin: 20px 10px auto 10px;
+  width: 600px;
 }
 
+.show-page-description{
+  margin: 10px auto auto 25px;
+}
+
+.show-page-description-btn{
+  text-align: right;
+}
+.show-container{
+  border-radius: 3px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.show-page-about{
+  p {
+    margin: 10px 5px 10px 5px;
+  }
+ }
+
+.show-btn-container{
+  display:flex;
+  justify-content: center;
+  margin: 15px auto;
+  a {
+    color: $my-black;
+    text-decoration: none;}
+}
+
+.show-container-info{
+  margin: 0px 10px;
+}

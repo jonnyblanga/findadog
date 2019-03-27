@@ -4,56 +4,70 @@
 <% content_for :meta_image, cl_image_path(@dog.photo) %>
 
 
-<div class="container show-container">
+<div class="container ">
   <div class="row">
-    <div class="col-md-8 container-for-the-show-page">
+    <div class="col-md-7 container-for-the-show-page">
       <div class="share-dog">
 
         <div class="dogs-show-photo">
-          <h1><%= @dog.name.upcase %></h1>
-          <div class= "image show-page-photo"  style="background-repeat: no-repeat;background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
-         url('<%= cl_image_path @dog.photo %>');background-size: cover;background-position: center center;">
-          <div class="show-heart">
-            <% if (current_user.role == "user") %>
-              <% if (Favorite.where(dog: @dog, user: current_user).present?) %>
-                <%= link_to dog_mydog_path(@dog.id, Favorite.where(dog: @dog, user: current_user).first.id), method: :delete do %>
-                  <i class="fas fa-heart show-heart" id="active"></i>
-                <% end %>
-              <% else %>
-                <%= link_to dog_mydogs_path(@dog.id), method: :post do %>
-                  <i class="fas fa-heart show-heart"></i>
-                <% end %>
-              <% end %>
-            <% end %>
-          </div>
-          </div>
-        </div>
-        <span class="social-share-button">
-          <%= social_share_button_tag("Check out #{@dog.name} on FindADog! http://www.findadog.site/dogs/#{@dog.id}", :url => "http://www.findadog.site/dogs/#{@dog.id}", :popup => "true", desc: "Check out #{@dog.name} on FindADog! http://www.findadog.site/dogs/#{@dog.id}", :image => @dog.photo) %>
-        </span>
-      </div>
+          <div class="dog-show-photo-header">
 
-      <p><b><%= @dog.name %></b> is...</p>
-        <ul>
-          <p>a <b><%= @size_dog %></b> <b><%= @gender_dog %></b>
-            who was born <b><%= Date.today.year - @dog.date_of_birth.year %></b> years ago,
-            <%= @he_she %> is a
-            <% @dog.color.each do |colors|%>
-            <% if colors.class == String %>
-              <b><%= colors %></b>
-            <% else %>
-              <% colors.each do |color| %>
-                <b><%= color %></b>
+            <div class="show-heart">
+              <% if (current_user.role == "user") %>
+              <% if (Favorite.where(dog: @dog, user: current_user).present?) %>
+              <%= link_to dog_mydog_path(@dog.id, Favorite.where(dog: @dog, user: current_user).first.id), method: :delete do %>
+              <i class="fas fa-heart show-heart" id="active"></i>
               <% end %>
-            <% end %>
+              <% else %>
+              <%= link_to dog_mydogs_path(@dog.id), method: :post do %>
+              <i class="fas fa-heart show-heart"></i>
+              <% end %>
+              <% end %>
+              <% end %>
+            </div>
+            <h1><%= @dog.name.upcase %></h1>
+
+          </div>
+          <div class= "image show-page-photo"  style="background-repeat: no-repeat;background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+          url('<%= cl_image_path @dog.photo %>');background-size: cover;background-position: center center;">
+
+        </div>
+      </div>
+      <span class="social-share-button">
+        <%= social_share_button_tag("Check out #{@dog.name} on FindADog! http://www.findadog.site/dogs/#{@dog.id}", :url => "http://www.findadog.site/dogs/#{@dog.id}", :popup => "true", desc: "Check out #{@dog.name} on FindADog! http://www.findadog.site/dogs/#{@dog.id}", :image => @dog.photo) %>
+      </span>
+    </div>
+
+    <div class="show-page-description-container">
+      <p><b><%= @dog.name %></b> is...</p>
+      <div class="show-page-description">
+        <p>a <b><%= @size_dog %></b> <b><%= @gender_dog %></b>
+          who was born <b><%= Date.today.year - @dog.date_of_birth.year %></b> years ago,
+          <%= @he_she %> is a
+          <% @dog.color.each do |colors|%>
+          <% if colors.class == String %>
+          <b><%= colors %></b>
+          <% else %>
+          <% colors.each do |color| %>
+          <b><%= color %></b>
+          <% end %>
+          <% end %>
           <% end %>
           <b><%= @dog.breed %></b>,
           <%= @he_she %> <b><%= @hypoallergenic_string %></b> and <%= @he_she %> <b><%= @steralized_string %></b>.
-          </p>
-        </ul>
+        </p>
+        <div class="show-page-description-btn">
+        <% if current_user.role == "shelter" %>
+          <%= link_to "Edit", edit_dog_path(@dog.id),class:"card-trip-btn" %>
 
-
+          <%= link_to dog_path(@dog.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fas fa-trash-alt"></i>
+          <% end  %>
+        <% end  %>
+        </div>
+      </div>
     </div>
+
     <div class="container col-md-4 show-container">
       <div class="container show-container">
         <h4><b><%= @dog.name %>'s Shelter:</b></h4>
@@ -71,9 +85,9 @@
             Address: <%= @dog.user.address %> <br>
             Work time: <%= @dog.user.hours_of_operation %></p>
           </div>
-          <div class="container">
+          
            <%= link_to "Contact the shelter", new_message_path(from_user_id: current_user.id, to_user_id: @dog.user_id, dog_id: @dog.id), class: "btn-ghost" %>
-          </div>
+       
         <% else %>
           <div class="show-page-about">
             <p>Phone Number: <%= @dog.user.phone %> <br>
@@ -83,57 +97,84 @@
           <div class="container">
           <%= link_to "Edit", edit_dog_path, class: "btn-ghost" %>
 
-          <%= link_to "Delete", dog_path(@dog), class: "btn-ghost", method: :delete %>
-          </div>
-        <% end %>
+
+  </div>
+  <div class="container col-md-4 show-container">
+
+    <h4><b><%= @dog.name %>'s Shelter: "<%= @dog.user.name %>"</b></h4>
+    <div
+    id="map"
+    style="width: 100%;
+    height: 200px;"
+    data-markers="<%= @marker.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+
+    <div class="show-page-about">
+      <p>Phone Number: <%= @dog.user.phone %> <br>
+        Address: <%= @dog.user.address %> <br>
+        Work time: <%= @dog.user.hours_of_operation %></p>
+      </div>
+
+      <% if current_user.role == "user"%>
+      <div class="show-btn-container">
+       <%= link_to "Contact the shelter", new_message_path(from_user_id: current_user.id, to_user_id: @dog.user_id, dog_id: @dog.id), class: "btn-ghost" %>
+     </div>
+
+     <% end %>
+
+
+     <div class="col-md-12 show-page-info">
+       <h4><b>Information about <%= @dog.name %>:</h4></b>
+     </div>
+     <div class="show-container-info">
+       <div class="col-md-12">
+        <h7>Gender:
+          <b><%= @dog.gender %></b>
+        </h7>
       </div>
       <div class="col-md-12">
-       <h4><b>Information about <%= @dog.name %>:</h4></b>
+        <h7>Size:
+          <b><%= @dog.size %></b>
+        </h7>
       </div>
-     <div class="col-md-12">
-      <h7>Gender:
-        <b><%= @dog.gender %></b>
-      </h7>
-    </div>
-    <div class="col-md-12">
-      <h7>Size:
-        <b><%= @dog.size %></b>
-      </h7>
-    </div>
-     <div class="col-md-12">
-      <h7>Age:
-        <b><%= Date.today.year - @dog.date_of_birth.year %> </b>
-      </h7>
-    </div>
-     <div class="col-md-12">
-      <h7>Breed:
-        <b><%= @dog.breed %></b>
-      </h7>
-    </div>
-     <div class="col-md-12">
-      <h7>Color:
-        <b> <% @dog.color.each do |colors|%>
+      <div class="col-md-12">
+        <h7>Age:
+          <b><%= Date.today.year - @dog.date_of_birth.year %> </b>
+        </h7>
+      </div>
+      <div class="col-md-12">
+        <h7>Breed:
+          <b><%= @dog.breed %></b>
+        </h7>
+      </div>
+      <div class="col-md-12">
+        <h7>Color:
+          <b> <% @dog.color.each do |colors|%>
             <% if colors.class == String %>
-              <%= colors %>
+            <%= colors %>
             <% else %>
-              <% colors.each do |color| %>
-                <%= color %>
-              <% end %>
+            <% colors.each do |color| %>
+            <%= color %>
             <% end %>
-          <% end %>
-        </b>
-      </h7>
-    </div>
-     <div class="col-md-12">
-      <h7><%= @he_she.capitalize %> <b><%= @steralized_string %></b></h7>
-    </div>
-     <div class="col-md-12">
-      <h7><%= @he_she.capitalize %> <b><%= @hypoallergenic_string %></b></h5>
-    </div>
+            <% end %>
+            <% end %>
+          </b>
+        </h7>
+      </div>
+      <div class="col-md-12">
+        <h7><%= @he_she.capitalize %> <b><%= @steralized_string %></b></h7>
+      </div>
+      <div class="col-md-12">
+        <h7><%= @he_she.capitalize %> <b><%= @hypoallergenic_string %></b></h5>
+        </div>
+            <div class="show-btn-container">
+            <p><%= link_to "Back", :back %></p>
+             </div>
+      </div>
     </div>
   </div>
 </div>
-
 
 
 
