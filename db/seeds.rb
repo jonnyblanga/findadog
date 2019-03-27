@@ -236,11 +236,11 @@ dog = Dog.new(name: "Lexy", gender: "female", date_of_birth: "2010-10-10", size:
 dog.remote_photo_url = "https://bepuppyblog-4fef.kxcdn.com/wp-content/uploads/2017/04/cane-maltese.jpg"
 dog.save
 
-dog = Dog.new(name: "Maya", gender: "female", date_of_birth: "2015-01-17", size: "small", breed: "Dachshund", color: ["black"], is_hypoallergenic: "false", is_sterilized: "true", user_id: all_shelters.last.id-4)
+dog = Dog.new(name: "Maya", gender: "female", date_of_birth: "2015-01-17", size: "small", breed: "Dachshund", color: ["black"], is_hypoallergenic: "false", is_sterilized: "true", user_id: all_shelters.last.id-3)
 dog.remote_photo_url = "https://www.pets4homes.co.uk/images/breeds/57/large/ca02f0e6d0cc2bfa187de33b9565b61e.JPG"
 dog.save
 
-dog = Dog.new(name: "Daisy", gender: "female", date_of_birth: "2013-11-10", size: "small", breed: "Dachshund", color: ["brown"], is_hypoallergenic: "false", is_sterilized: "false", user_id: all_shelters.last.id-4)
+dog = Dog.new(name: "Daisy", gender: "female", date_of_birth: "2013-11-10", size: "small", breed: "Dachshund", color: ["brown"], is_hypoallergenic: "false", is_sterilized: "false", user_id: all_shelters.last.id-3)
 dog.remote_photo_url = "https://ncvs.net.au/wp-content/uploads/dachsund.jpg"
 dog.save
 
