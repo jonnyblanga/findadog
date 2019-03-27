@@ -67,37 +67,6 @@
         </div>
       </div>
     </div>
-
-    <div class="container col-md-4 show-container">
-      <div class="container show-container">
-        <h4><b><%= @dog.name %>'s Shelter:</b></h4>
-        <div
-          id="map"
-          style="width: 100%;
-          height: 200px;"
-          data-markers="<%= @marker.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-        ></div>
-
-        <% if current_user.role == "user"%>
-          <div class="show-page-about">
-            <p>Phone Number: <%= @dog.user.phone %> <br>
-            Address: <%= @dog.user.address %> <br>
-            Work time: <%= @dog.user.hours_of_operation %></p>
-          </div>
-          
-           <%= link_to "Contact the shelter", new_message_path(from_user_id: current_user.id, to_user_id: @dog.user_id, dog_id: @dog.id), class: "btn-ghost" %>
-       
-        <% else %>
-          <div class="show-page-about">
-            <p>Phone Number: <%= @dog.user.phone %> <br>
-            Address: <%= @dog.user.address %> <br>
-            Work time: <%= @dog.user.hours_of_operation %></p>
-          </div>
-          <div class="container">
-          <%= link_to "Edit", edit_dog_path, class: "btn-ghost" %>
-
-
   </div>
   <div class="container col-md-4 show-container">
 
@@ -166,11 +135,11 @@
         <h7><%= @he_she.capitalize %> <b><%= @steralized_string %></b></h7>
       </div>
       <div class="col-md-12">
-        <h7><%= @he_she.capitalize %> <b><%= @hypoallergenic_string %></b></h5>
+        <h7><%= @he_she.capitalize %> <b><%= @hypoallergenic_string %></b></h7>
         </div>
             <div class="show-btn-container">
             <p><%= link_to "Back", :back %></p>
-             </div>
+            </div>
       </div>
     </div>
   </div>
