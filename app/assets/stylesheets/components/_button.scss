@@ -47,3 +47,16 @@
   opacity: 0.8;
 }
 }
+
+
+.btn-green {
+  color: $my-black !important;
+  padding: 8px 30px;
+  border-radius: 3px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  font-weight: bolder;
+  :hover {
+  opacity: 0.8;
+}
+}

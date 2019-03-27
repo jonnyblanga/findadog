@@ -1,7 +1,9 @@
 
 <div class="form-page">
-  <h1>Edit your dog</h1>
-
+  <div Class="form-edit-header">
+    <h1>Edit your dog</h1>
+    <p><%= link_to "Back", :back %></p>
+  </div>
   <%= simple_form_for @dog do |f| %>
     <%= f.input :name %>
     <%= f.input :gender, collection: Dog::GENDERS %>
@@ -14,9 +16,10 @@
     <%= f.input :is_sterilized, as: :boolean, checked_value: true, unchecked_value: false %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
-    <%= f.file_field :pictures, multiple: true %>
-
-    <%= f.button :submit, :id => 'btn-ghost' %>
+    <%#= f.file_field :pictures, multiple: true %>
+    <div class="div-btn-center">
+      <%= f.button :submit, :class => 'btn-green' %>
+    </div>
   <% end %>
 </div>
 
