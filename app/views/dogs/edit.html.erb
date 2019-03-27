@@ -8,7 +8,7 @@
   <%= f.input :name %>
   <%= f.input :gender, collection: Dog::GENDERS %>
   <label>Birthday</label>
-  <%= date_select :dog ,:date_of_birth, :start_year => (DateTime.current.year - 90), :end_year => (DateTime.current.year)%>
+  <%= f.input :date_of_birth, as: :string, required: false, input_html: {class: "datepicker"} %>
   <%= f.input :size, collection: Dog::SIZES %>
   <%= f.input :breed, collection: Dog::BREEDS  %>
   <%= f.input :color, :label => "Color", :collection => Dog::COLORS, :as => :check_boxes %>
