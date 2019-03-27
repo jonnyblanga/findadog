@@ -55,6 +55,15 @@
           <b><%= @dog.breed %></b>,
           <%= @he_she %> <b><%= @hypoallergenic_string %></b> and <%= @he_she %> <b><%= @steralized_string %></b>.
         </p>
+        <% if current_user.role == "shelter" %>
+            <div class="show-page-description-btn">
+            <%= link_to "Edit", edit_dog_path(@dog.id),class:"card-trip-btn" %>
+
+            <%= link_to dog_path(@dog.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fas fa-trash-alt"></i>
+            <% end  %>
+          </div>
+          <% end  %>
       </div>
     </div>
 
@@ -81,13 +90,7 @@
       <div class="show-btn-container">
        <%= link_to "Contact the shelter", new_message_path(from_user_id: current_user.id, to_user_id: @dog.user_id, dog_id: @dog.id), class: "btn-ghost" %>
      </div>
-     <% else %>
 
-     <div class="show-btn-container">
-      <%= link_to "Edit", edit_dog_path, class: "btn-ghost" %>
-
-      <%= link_to "Delete", dog_path(@dog), class: "btn-ghost", method: :delete %>
-    </div>
     <% end %>
 
 
