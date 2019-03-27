@@ -53,6 +53,9 @@ h6, p, h7, h4 {
   display:flex;
   justify-content: center;
   margin: 15px auto;
+  a {
+    color: $my-black;
+    text-decoration: none;}
 }
 
 .show-container-info{
