@@ -23,7 +23,20 @@
   // }
   .optional{
     margin-bottom: 0px;
+  }
+}
 
+.form-container-colors {
+  color: $my-black;
+  font-weight: bold;
+  background: white;
+  margin-top: 0px;
+  padding: 15px ;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  .optional{
+    margin: 2px auto;
   }
 }
 
