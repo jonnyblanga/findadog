@@ -1,7 +1,7 @@
 
 <div class="form-page">
   <div Class="form-edit-header">
-    <h1>Edit your dog</h1>
+    <h1>Edit your dog's informations</h1>
     <p><%= link_to "Back", :back %></p>
   </div>
   <%= simple_form_for @dog do |f| %>
@@ -19,7 +19,7 @@
   <%= f.input :photo_cache, as: :hidden %>
   <%#= f.file_field :pictures, multiple: true %>
   <div class="div-btn-center">
-    <%= f.button :submit, :class => 'btn-green' %>
+    <%= f.button :submit,'Save information', :class => 'btn-green' %>
   </div>
   <% end %>
 </div>
