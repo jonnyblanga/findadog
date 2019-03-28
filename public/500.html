@@ -30,9 +30,9 @@
   }
 
   .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
+    margin: 0 0 0;
     padding: 1em;
-    background-color: #F7F7F7;
+    padding-bottom: 10px;
     color: #666;
   }
 
@@ -42,6 +42,19 @@
     opacity: 0.8;
   }
 
+.btn-ghost {
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  border-radius: 3px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  font-weight: bolder;
+  font-size: 30px;
+  color: #666;
+}
+
+.btn-ghost:hover { text-decoration: underline;
+  }
 
   .dialog > div > p {
     font-size: 30px;
@@ -54,12 +67,10 @@
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
   <div class="dialog">
-    <div>
       <h1>Sorry, something went wrong!</h1>
-      <img src="../app/assets/images/404page.jpg" alt="">
+      <img src="/404page.jpg" alt="">
       <p>The server is currently unable to handle this request.</p>
-    <a href="/">Back</a>
-    </div>
+     <a href="/"><button class="btn-ghost "><strong>Back home</strong></button></a>
   </div>
 </body>
 </html>

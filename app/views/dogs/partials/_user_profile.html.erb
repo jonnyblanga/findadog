@@ -1,10 +1,10 @@
 
 <div class="profile-container">
+
   <div>
-    <div>
-      <h3 style="text-decoration: underline;">INFORMATION ABOUT YOU</h3>
-    </div>
+    <h3 style="text-decoration: underline;">INFORMATION ABOUT YOU</h3>
   </div>
+
   <div class="profile-info">
     <div class="profile-info-header">
       <p>Name:</p>
@@ -17,7 +17,8 @@
       <h3><%= @user.email %></h3>
     </div>
   </div>
-  <div>
+
+  <div class="btn-page">
     <%= link_to "Edit your infos",  edit_user_registration_path,  class: "btn btn-ghost", method: :GET %>
   </div>
 </div>
