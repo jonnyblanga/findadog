@@ -141,7 +141,7 @@ dog.remote_photo_url = "https://www.101dogbreeds.com/wp-content/uploads/2016/12/
 dog.save
 
 dog = Dog.new(name: "Nancy", gender: "female", date_of_birth: "2014-06-11", size: "medium", breed: "Old English Sheepdog", color: ["white", "gray"], is_hypoallergenic: "false", is_sterilized: "true", user_id: good_shelter.id)
-dog.remote_photo_url = "https://i.pinimg.com/originals/f5/66/52/f5665206ab52eafa4ad2d65141024eda.jpg"
+dog.remote_photo_url = "https://quattrozampe.online/wp-content/uploads/2015/09/Bobtail2.jpg"
 dog.save
 
 dog = Dog.new(name: "Shirley", gender: "female", date_of_birth: "2017-12-15", size: "medium", breed: "Old English Sheepdog", color: ["white", "gray"], is_hypoallergenic: "false", is_sterilized: "false", user_id: good_shelter.id)
