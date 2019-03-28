@@ -200,7 +200,7 @@ dog = Dog.new(name: "Tucker", gender: "male", date_of_birth: "2010-04-24", size:
 dog.remote_photo_url = "https://quattrozampe.online/wp-content/uploads/2018/10/dalmata-3-960x662.jpg"
 dog.save
 
-dog = Dog.new(name: "Luna", gender: "female", date_of_birth: "2013-11-20", size: "large", breed: "Dalmatian", color: ["white", "black"], is_hypoallergenic: "false", is_sterilized: "true", user_id: all_shelters.last.id)
+dog = Dog.new(name: "Luna", gender: "female", date_of_birth: "2013-11-20", size: "large", breed: "Dalmatian", color: ["white", "black"], is_hypoallergenic: "false", is_sterilized: "true", user_id: all_shelters.last.id-2)
 dog.remote_photo_url = "https://www.barinedita.it/public/foto_galleria/dalmata_7.jpg"
 dog.save
 
