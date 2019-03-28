@@ -30,7 +30,6 @@
   background-color: white;
 }
 
-
 .div-btn-center{
   text-align: center;
   padding:20px;
@@ -45,9 +44,8 @@
   font-weight: bolder;
   :hover {
   opacity: 0.8;
+  }
 }
-}
-
 
 .btn-green {
   color: $my-black !important;
@@ -59,4 +57,10 @@
   :hover {
   opacity: 0.8;
 }
+}
+
+.btn-page {
+  display: flex;
+  justify-content: center;
+  margin: 13px;
 }

@@ -1,3 +1,5 @@
 
 <%= render partial: "shared/partials/tab" %>
+<div class="profile-page">
 <%= render partial: "dogs/partials/#{@user.role}_profile", locals: {user: @user} %>
+</div>
