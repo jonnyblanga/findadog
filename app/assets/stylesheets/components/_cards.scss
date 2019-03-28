@@ -25,7 +25,7 @@
 }
 
 .card-trip {
-  height: 250px;
+  height: 300px;
   // width: 31%;
   width: 360px;
   overflow: hidden;
@@ -43,13 +43,13 @@
 }
 
 .card-trip h2 {
-  font-size: 16px;
+  font-size: 21px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-trip h3 {
-  font-size: 12px;
+  font-size: 14px;
   opacity: .7;
   margin: 0;
 }
@@ -60,6 +60,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  font-size: 23px;
 }
 
 .card-trip-btns{
