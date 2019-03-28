@@ -11,8 +11,8 @@
   <%= f.input :size, collection: Dog::SIZES %>
   <%= f.input :breed, collection: Dog::BREEDS  %>
   <%= f.input :color, :label => "Color", :collection => Dog::COLORS, :as => :check_boxes %>
-  <%= f.input :is_hypoallergenic, as: :boolean, checked_value: true, unchecked_value: false %>
-  <%= f.input :is_sterilized, as: :boolean, checked_value: true, unchecked_value: false %>
+  <%= f.input :is_hypoallergenic,:label => "Is hypoallergenic?", as: :boolean, checked_value: true, unchecked_value: false %>
+  <%= f.input :is_sterilized,:label => "Is sterilized?", as: :boolean, checked_value: true, unchecked_value: false %>
   <%= cl_image_tag(@dog.photo, class: "image form-edit-photo") %>
 
   <%= f.input :photo, label: "To change photo" %>
