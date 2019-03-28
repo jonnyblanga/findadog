@@ -3,7 +3,7 @@
 <div class="form-page">
 
   <div Class="form-edit-header">
-    <h1>New dog</h1>
+    <h1>Register a Dog</h1>
     <p><%= link_to "Back", :back %></p>
   </div>
   <%= simple_form_for @dog do |f| %>
@@ -24,7 +24,7 @@
   <%#= f.input :pictures, as: :file, input_html: {name: "dog[pictures][]", multiple: true} %>
 
   <div class="div-btn-center">
-    <%= f.button :submit, :class => 'btn-green' %>
+    <%= f.button :submit, 'Save information', :class => 'btn-green' %>
   </div>
   <% end %>
 </div>
